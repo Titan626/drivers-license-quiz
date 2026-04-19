@@ -1,38 +1,71 @@
-# VIO Mock Quiz – Nigerian Driver's License Practice Test
+# VIO Mock Quiz — Nigerian Driver's License Practice Test
 
-A premium, high-fidelity web application designed to help prospective drivers in Nigeria practice for their driving license exams. This mock quiz covers essential road signs, traffic rules, vehicle knowledge, and the FRSC Highway Code.
+A free, open-source practice test for the Nigerian Vehicle Inspection Officer (VIO) driver's license exam, based on the FRSC Highway Code.
 
-![VIO Mock Quiz Preview](https://github.com/Titan626/drivers-license-quiz/raw/main/preview.png) *(Note: Add a real preview image/gif here)*
+- **Zero dependencies** — single HTML file + one JS file. No build step.
+- **Mobile-friendly** — works on any phone or laptop browser.
+- **Realistic** — 60 seconds per question (matches actual VIO pace), 70% pass mark.
+- **Two modes** — 20-question quick test (~20 min) or 40-question full test (~40 min).
+- **Smart features** — timer with warning states, question + option shuffle, light/dark mode, keyboard shortcuts, localStorage progress save, review-wrong-answers mode, best-score tracking.
 
-## 🇳🇬 Project Context
-The **VIO Mock Quiz** is an interactive educational tool tailored to the Nigerian road environment. It aims to improve road safety awareness and prepare applicants for the theoretical portion of the driving test conducted by the Vehicle Inspection Office (VIO) and the Federal Road Safety Corps (FRSC).
+## Features
 
-## ✨ Key Features
-- **40 Comprehensive Questions**: Curated across multiple categories including Road Signs, Traffic Rules, Vehicle Maintenance, and Road Penalties.
-- **Interactive SVG Road Signs**: Custom-built vector graphics for accurate representation of Nigerian road signs.
-- **Instant Feedback**: Explanations for every question to help users understand the reasoning behind correct answers.
-- **Progress Tracking**: A sleek, real-time progress bar tracking your journey through the quiz.
-- **Score Breakdown**: A final result screen showing total score, percentage, and category-level insights.
-- **Responsive Design**: Optimized for mobile, tablet, and desktop viewing with a modern, glassmorphic aesthetic.
+- **Timed quiz** with visible countdown; auto-submits when time runs out.
+- **Question shuffle** — different question set and option order every attempt.
+- **Topic-balanced 20Q mode** — five questions from each of the four topics (Road Signs, Traffic Rules, Vehicle Knowledge, Highway Code).
+- **Pass/Fail verdict** at 70% threshold, with topic-level breakdown.
+- **Review wrong answers only** after the test, with explanations.
+- **Resume in progress** — refresh the page and pick up where you left off.
+- **Best scores** stored per mode in your browser.
+- **Light/Dark mode** with `prefers-color-scheme` autodetection.
+- **Full keyboard support**.
 
-## 🛠️ Technology Stack
-- **Core**: HTML5 & Vanilla JavaScript
-- **Styling**: CSS3 (Custom design system with Inter Display typography)
-- **Icons/Graphics**: Embedded SVGs for road signs
-- **Fonts**: Inter via Google Fonts
+## Run locally
 
-## 🚀 How to Run Locally
-Since this is a static web application, you can run it without any complex setup:
+Just open `index.html` in any browser. No install, no server.
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/Titan626/drivers-license-quiz.git
-   ```
-2. **Open the HTML file:**
-   Navigate to the project folder and open `vio-drivers-license-mock-quiz.html` in any modern web browser.
+```bash
+open index.html        # macOS
+xdg-open index.html    # Linux
+start index.html       # Windows
+```
 
-## 📝 Disclaimer
-This app is for practice purposes only. Always refer to the official **FRSC Highway Code** for the most accurate and up-to-date road traffic regulations in Nigeria.
+## Deploy to Netlify
 
----
-*Built with ❤️ for Nigerian Road Safety.*
+Easiest path:
+
+1. Drag the project folder onto [Netlify Drop](https://app.netlify.com/drop). Done.
+
+Or via Git:
+
+1. Push this repo to GitHub.
+2. In Netlify: **Add new site → Import from Git** → pick the repo.
+3. Build command: *(none)*. Publish directory: `.` (already set in `netlify.toml`).
+
+## Keyboard shortcuts
+
+| Key | Action |
+|---|---|
+| `A` / `B` / `C` / `D` or `1`–`4` | Pick option |
+| `←` / `→` | Previous / next question |
+| `Enter` | Advance after answering, or start/retake |
+| `Escape` | Exit review mode |
+
+## Tech stack
+
+- HTML5 + vanilla JavaScript (no framework, no build tools)
+- CSS custom properties (Linear-inspired design tokens)
+- [Inter](https://rsms.me/inter/) font, loaded from CDN
+- `localStorage` for persistence
+
+## Contributing
+
+Want to add or improve questions? See [CONTRIBUTING.md](CONTRIBUTING.md). All questions live in `questions.js` with a documented schema — you only need to edit one file to contribute.
+
+## Disclaimer
+
+This is a **practice test only**. Always refer to the official [FRSC Highway Code](https://frsc.gov.ng/) for authoritative information. Question content is community-contributed and may contain errors — open an issue or PR if you spot one.
+
+## License
+
+[MIT](LICENSE) — use it however you like.

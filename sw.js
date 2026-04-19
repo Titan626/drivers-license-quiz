@@ -3,7 +3,7 @@
 // network with cache fallback for the Inter font CDN.
 // Bump CACHE_VERSION on every release to invalidate old caches.
 
-const CACHE_VERSION = 'vio-quiz-v2';
+const CACHE_VERSION = 'vio-quiz-v5';
 const APP_SHELL = [
   './',
   './index.html',
@@ -12,7 +12,25 @@ const APP_SHELL = [
   './icon.svg',
   './icon-192.png',
   './icon-512.png',
-  './apple-touch-icon.png'
+  './apple-touch-icon.png',
+  './signs/NG_road_sign_A04b.svg',
+  './signs/NG_road_sign_A09.svg',
+  './signs/NG_road_sign_A11.svg',
+  './signs/NG_road_sign_A12.svg',
+  './signs/NG_road_sign_A13a.svg',
+  './signs/NG_road_sign_A16.svg',
+  './signs/NG_road_sign_A18a.svg',
+  './signs/NG_road_sign_A22.svg',
+  './signs/NG_road_sign_A32.svg',
+  './signs/NG_road_sign_B02a.svg',
+  './signs/NG_road_sign_C02.svg',
+  './signs/NG_road_sign_C12.svg',
+  './signs/NG_road_sign_C19.svg',
+  './signs/NG_road_sign_D01a.svg',
+  './signs/NG_road_sign_D01c.svg',
+  './signs/NG_road_sign_D02a.svg',
+  './signs/NG_road_sign_D04.svg',
+  './signs/NG_road_sign_F1a.svg'
 ];
 
 self.addEventListener('install', (event) => {

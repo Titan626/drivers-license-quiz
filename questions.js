@@ -25,7 +25,7 @@ window.QUESTIONS = [
   {
     topic: "Road Signs",
     q: "This road sign means:",
-    sign: `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><polygon points="60,10 140,10 190,60 190,140 140,190 60,190 10,140 10,60" fill="#d93025" stroke="white" stroke-width="6"/><polygon points="60,10 140,10 190,60 190,140 140,190 60,190 10,140 10,60" fill="none" stroke="#a52714" stroke-width="2"/><text x="100" y="118" font-family="Arial, sans-serif" font-size="42" font-weight="900" fill="white" text-anchor="middle">STOP</text></svg>`,
+    sign: `<img src="signs/NG_road_sign_B02a.svg" alt="Nigerian STOP sign — yellow-bordered octagon">`,
     options: [
       "Slow down and proceed with caution",
       "Come to a complete stop before proceeding",
@@ -38,7 +38,7 @@ window.QUESTIONS = [
   {
     topic: "Road Signs",
     q: "Based on its shape and colour, what type of sign is this?",
-    sign: `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><polygon points="100,15 190,180 10,180" fill="white" stroke="#d93025" stroke-width="14"/><text x="100" y="150" font-family="Arial, sans-serif" font-size="80" font-weight="900" fill="#1a1a1a" text-anchor="middle">!</text></svg>`,
+    sign: `<img src="signs/NG_road_sign_A32.svg" alt="Generic warning triangle — other danger">`,
     options: [
       "A regulatory (prohibitive) sign",
       "An informative / guide sign",
@@ -51,7 +51,7 @@ window.QUESTIONS = [
   {
     topic: "Road Signs",
     q: "This road sign means:",
-    sign: `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><circle cx="100" cy="100" r="85" fill="white" stroke="#d93025" stroke-width="14"/><g transform="translate(45,80)"><rect x="5" y="15" width="100" height="22" rx="4" fill="#444"/><rect x="15" y="5" width="75" height="18" rx="6" fill="#444"/><circle cx="25" cy="40" r="8" fill="#1a1a1a"/><circle cx="85" cy="40" r="8" fill="#1a1a1a"/><rect x="20" y="10" width="25" height="12" rx="2" fill="#a8d5ff"/><rect x="55" y="10" width="25" height="12" rx="2" fill="#a8d5ff"/></g><line x1="35" y1="35" x2="165" y2="165" stroke="#d93025" stroke-width="12" stroke-linecap="round"/></svg>`,
+    sign: `<img src="signs/NG_road_sign_C02.svg" alt="No motor vehicles">`,
     options: [
       "No overtaking",
       "No entry for motor vehicles",
@@ -64,7 +64,7 @@ window.QUESTIONS = [
   {
     topic: "Road Signs",
     q: "This road sign means:",
-    sign: `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><circle cx="100" cy="100" r="90" fill="#1967d2" stroke="white" stroke-width="6"/><circle cx="100" cy="100" r="90" fill="none" stroke="#0b4a9e" stroke-width="2"/><path d="M 55 100 L 125 100 L 125 75 L 160 105 L 125 135 L 125 110 L 55 110 Z" fill="white"/></svg>`,
+    sign: `<img src="signs/NG_road_sign_D01c.svg" alt="Mandatory turn right — blue circle with right arrow">`,
     options: [
       "Right turn prohibited",
       "Warning: sharp right curve ahead",
@@ -77,7 +77,7 @@ window.QUESTIONS = [
   {
     topic: "Road Signs",
     q: "This road sign means:",
-    sign: `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><polygon points="100,15 190,180 10,180" fill="white" stroke="#d93025" stroke-width="14"/><rect x="92" y="70" width="16" height="60" rx="3" fill="#1a1a1a"/><circle cx="100" cy="150" r="10" fill="#1a1a1a"/></svg>`,
+    sign: `<img src="signs/NG_road_sign_A32.svg" alt="Other danger warning triangle">`,
     options: [
       "Other danger ahead — proceed with caution",
       "First aid station",
@@ -90,7 +90,7 @@ window.QUESTIONS = [
   {
     topic: "Road Signs",
     q: "This road sign means:",
-    sign: `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><circle cx="100" cy="100" r="92" fill="#1967d2"/><circle cx="100" cy="100" r="92" fill="none" stroke="#d93025" stroke-width="14"/><line x1="38" y1="38" x2="162" y2="162" stroke="#d93025" stroke-width="14" stroke-linecap="round"/></svg>`,
+    sign: `<img src="signs/NG_road_sign_C19.svg" alt="No parking sign">`,
     options: [
       "No stopping (clearway)",
       "No parking",
@@ -116,7 +116,7 @@ window.QUESTIONS = [
   {
     topic: "Road Signs",
     q: "This road sign means:",
-    sign: `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><polygon points="100,15 190,180 10,180" fill="white" stroke="#d93025" stroke-width="14"/><circle cx="95" cy="75" r="10" fill="#1a1a1a"/><rect x="88" y="87" width="14" height="40" rx="3" fill="#1a1a1a"/><rect x="79" y="118" width="10" height="38" rx="2" fill="#1a1a1a" transform="rotate(14 84 137)"/><rect x="101" y="118" width="10" height="38" rx="2" fill="#1a1a1a" transform="rotate(-14 106 137)"/><rect x="103" y="90" width="8" height="28" rx="2" fill="#1a1a1a" transform="rotate(-35 107 104)"/></svg>`,
+    sign: `<img src="signs/NG_road_sign_A12.svg" alt="Pedestrian crossing warning sign">`,
     options: [
       "Pedestrians prohibited",
       "School zone — stop",
@@ -129,7 +129,7 @@ window.QUESTIONS = [
   {
     topic: "Road Signs",
     q: "This road sign means:",
-    sign: `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><circle cx="100" cy="100" r="85" fill="white" stroke="#d93025" stroke-width="14"/><path d="M 130 155 L 130 95 A 30 30 0 0 0 70 95 L 70 120" fill="none" stroke="#1a1a1a" stroke-width="10" stroke-linecap="round"/><polygon points="55,120 85,120 70,150" fill="#1a1a1a"/><line x1="40" y1="40" x2="160" y2="160" stroke="#d93025" stroke-width="12" stroke-linecap="round"/></svg>`,
+    sign: `<img src="signs/NG_road_sign_C12.svg" alt="No U-turn sign">`,
     options: [
       "U-turn permitted",
       "Two-way traffic",
@@ -142,7 +142,7 @@ window.QUESTIONS = [
   {
     topic: "Road Signs",
     q: "This road sign means:",
-    sign: `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><circle cx="100" cy="100" r="90" fill="#1967d2" stroke="white" stroke-width="6"/><circle cx="100" cy="100" r="90" fill="none" stroke="#0b4a9e" stroke-width="2"/><circle cx="100" cy="100" r="22" fill="none" stroke="white" stroke-width="3" stroke-dasharray="5 3"/><path d="M 100 42 A 58 58 0 0 0 42 100" fill="none" stroke="white" stroke-width="9" stroke-linecap="round"/><polygon points="30,95 52,110 55,88" fill="white"/><path d="M 58 148 A 58 58 0 0 0 128 165" fill="none" stroke="white" stroke-width="9" stroke-linecap="round"/><polygon points="120,155 142,170 140,148" fill="white"/><path d="M 155 128 A 58 58 0 0 0 155 72" fill="none" stroke="white" stroke-width="9" stroke-linecap="round"/><polygon points="170,78 148,68 158,90" fill="white"/></svg>`,
+    sign: `<img src="signs/NG_road_sign_A22.svg" alt="Roundabout ahead warning sign">`,
     options: [
       "Roundabout ahead — give way to traffic already on it",
       "Do not enter",
@@ -523,7 +523,7 @@ window.QUESTIONS = [
   {
     topic: "Road Signs",
     q: "This warning sign means:",
-    sign: `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><polygon points="100,15 190,180 10,180" fill="#fff4d4" stroke="#d93025" stroke-width="14"/><circle cx="78" cy="78" r="8" fill="#1a1a1a"/><rect x="71" y="86" width="14" height="32" rx="2" fill="#1a1a1a"/><rect x="65" y="115" width="9" height="28" fill="#1a1a1a" transform="rotate(12 70 130)"/><rect x="82" y="115" width="9" height="28" fill="#1a1a1a" transform="rotate(-12 87 130)"/><circle cx="125" cy="105" r="6" fill="#1a1a1a"/><rect x="120" y="111" width="10" height="24" rx="2" fill="#1a1a1a"/><rect x="116" y="133" width="6" height="20" fill="#1a1a1a"/><rect x="128" y="133" width="6" height="20" fill="#1a1a1a"/></svg>`,
+    sign: `<img src="signs/NG_road_sign_A13a.svg" alt="School / children crossing warning sign">`,
     options: [
       "School / children crossing ahead — slow down",
       "No children allowed on this road",
@@ -536,7 +536,7 @@ window.QUESTIONS = [
   {
     topic: "Road Signs",
     q: "This warning sign means:",
-    sign: `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><polygon points="100,15 190,180 10,180" fill="#fff4d4" stroke="#d93025" stroke-width="14"/><polygon points="50,150 90,90 130,150" fill="#1a1a1a"/><circle cx="135" cy="80" r="10" fill="#1a1a1a"/><circle cx="150" cy="100" r="7" fill="#1a1a1a"/><circle cx="120" cy="60" r="6" fill="#1a1a1a"/><circle cx="155" cy="135" r="5" fill="#1a1a1a"/></svg>`,
+    sign: `<img src="signs/NG_road_sign_A11.svg" alt="Falling rocks warning sign">`,
     options: [
       "Loose chippings on road",
       "Falling rocks ahead",
@@ -549,7 +549,7 @@ window.QUESTIONS = [
   {
     topic: "Road Signs",
     q: "This warning sign means:",
-    sign: `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><polygon points="100,15 190,180 10,180" fill="#fff4d4" stroke="#d93025" stroke-width="14"/><rect x="80" y="80" width="40" height="50" rx="6" fill="#1a1a1a"/><rect x="86" y="86" width="28" height="18" rx="2" fill="#a8d5ff"/><circle cx="86" cy="135" r="6" fill="#1a1a1a"/><circle cx="114" cy="135" r="6" fill="#1a1a1a"/><path d="M 50 150 Q 65 145 70 155 Q 75 165 65 160" fill="none" stroke="#1a1a1a" stroke-width="3"/><path d="M 130 150 Q 145 145 150 155 Q 155 165 145 160" fill="none" stroke="#1a1a1a" stroke-width="3"/></svg>`,
+    sign: `<img src="signs/NG_road_sign_A09.svg" alt="Slippery road warning sign">`,
     options: [
       "Slippery road surface — drive with caution",
       "Car repair garage ahead",
@@ -562,7 +562,7 @@ window.QUESTIONS = [
   {
     topic: "Road Signs",
     q: "This warning sign means:",
-    sign: `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><polygon points="100,15 190,180 10,180" fill="#fff4d4" stroke="#d93025" stroke-width="14"/><path d="M 60 70 Q 80 110 60 150" fill="none" stroke="#1a1a1a" stroke-width="10"/><path d="M 140 70 Q 120 110 140 150" fill="none" stroke="#1a1a1a" stroke-width="10"/></svg>`,
+    sign: `<img src="signs/NG_road_sign_A04b.svg" alt="Narrow bridge warning sign">`,
     options: [
       "Road widens ahead",
       "Tunnel ahead",
@@ -575,7 +575,7 @@ window.QUESTIONS = [
   {
     topic: "Road Signs",
     q: "This warning sign means:",
-    sign: `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><polygon points="100,15 190,180 10,180" fill="#fff4d4" stroke="#d93025" stroke-width="14"/><line x1="55" y1="80" x2="145" y2="160" stroke="#1a1a1a" stroke-width="14" stroke-linecap="round"/><line x1="145" y1="80" x2="55" y2="160" stroke="#1a1a1a" stroke-width="14" stroke-linecap="round"/></svg>`,
+    sign: `<img src="signs/NG_road_sign_A18a.svg" alt="Cross-road intersection warning sign">`,
     options: [
       "Road closed",
       "End of restriction",
@@ -588,20 +588,20 @@ window.QUESTIONS = [
   {
     topic: "Road Signs",
     q: "This mandatory sign means:",
-    sign: `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><circle cx="100" cy="100" r="90" fill="#1967d2" stroke="white" stroke-width="6"/><circle cx="100" cy="100" r="90" fill="none" stroke="#0b4a9e" stroke-width="2"/><path d="M 80 60 L 80 100 L 130 100 L 110 130 L 130 130 L 165 90 L 130 50 L 130 70 Z" fill="white" transform="rotate(35 100 100)"/></svg>`,
+    sign: `<img src="signs/NG_road_sign_D02a.svg" alt="Pass on the left — mandatory sign">`,
     options: [
-      "Do not turn right",
-      "Keep right of the divider",
-      "Right-hand bend ahead",
-      "Two-way traffic"
+      "Turn left ahead",
+      "Pass to the left of the obstruction or divider",
+      "Two-way traffic",
+      "Left bend ahead"
     ],
     answer: 1,
-    explain: "Per Highway Code Section B.III (Mandatory Signs), a blue circle with a downward-right arrow means you MUST keep to the right of the traffic island or divider ahead."
+    explain: "Per Highway Code Section B.III (Mandatory Signs), a blue circle with a down-left arrow means you MUST pass to the LEFT of the traffic island, obstruction or divider ahead."
   },
   {
     topic: "Road Signs",
     q: "This sign means:",
-    sign: `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><rect x="20" y="60" width="160" height="80" rx="6" fill="#1967d2" stroke="white" stroke-width="4"/><path d="M 50 100 L 130 100 L 130 80 L 160 100 L 130 120 L 130 100 Z" fill="white"/></svg>`,
+    sign: `<img src="signs/NG_road_sign_D01a.svg" alt="One-way traffic sign">`,
     options: [
       "Two-way traffic",
       "One-way traffic in the direction of the arrow",
@@ -614,7 +614,7 @@ window.QUESTIONS = [
   {
     topic: "Road Signs",
     q: "This mandatory sign means:",
-    sign: `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><circle cx="100" cy="100" r="90" fill="#1967d2" stroke="white" stroke-width="6"/><circle cx="100" cy="100" r="90" fill="none" stroke="#0b4a9e" stroke-width="2"/><circle cx="70" cy="135" r="22" fill="none" stroke="white" stroke-width="6"/><circle cx="130" cy="135" r="22" fill="none" stroke="white" stroke-width="6"/><path d="M 70 135 L 100 80 L 130 135" fill="none" stroke="white" stroke-width="6" stroke-linejoin="round"/><line x1="100" y1="80" x2="120" y2="80" stroke="white" stroke-width="6" stroke-linecap="round"/><circle cx="100" cy="65" r="9" fill="white"/></svg>`,
+    sign: `<img src="signs/NG_road_sign_D04.svg" alt="Compulsory cycle track sign">`,
     options: [
       "No cycling allowed",
       "Compulsory cycle track — cyclists must use it",
@@ -627,7 +627,7 @@ window.QUESTIONS = [
   {
     topic: "Road Signs",
     q: "This sign means:",
-    sign: `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><rect x="20" y="20" width="160" height="160" rx="6" fill="#0c8a3a" stroke="white" stroke-width="4"/><rect x="80" y="60" width="40" height="80" fill="white"/><rect x="60" y="80" width="80" height="40" fill="white"/></svg>`,
+    sign: `<img src="signs/NG_road_sign_F1a.svg" alt="Hospital information sign">`,
     options: [
       "Pharmacy",
       "Hospital / first-aid station",
@@ -635,7 +635,7 @@ window.QUESTIONS = [
       "Police checkpoint"
     ],
     answer: 1,
-    explain: "Per Highway Code Section B.IV (Information Signs), a green or blue rectangular sign with a white cross/plus indicates a hospital or first-aid station. Drive carefully and avoid sounding the horn nearby."
+    explain: "Per Highway Code Section B.IV (Information Signs), the hospital sign indicates a hospital or first-aid station nearby. Drive carefully and avoid sounding the horn within the silent zone around it."
   },
 
   // ===== TRAFFIC RULES (SET 3 — sourced from Highway Code Section B & A) =====
@@ -1006,14 +1006,14 @@ window.QUESTIONS = [
   {
     topic: "Road Signs",
     q: "This warning sign means:",
-    sign: `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><polygon points="100,15 190,180 10,180" fill="#fff4d4" stroke="#d93025" stroke-width="14"/><path d="M 60 70 L 90 110 L 90 160" fill="none" stroke="#1a1a1a" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/><path d="M 140 70 L 110 110 L 110 160" fill="none" stroke="#1a1a1a" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+    sign: `<img src="signs/NG_road_sign_A16.svg" alt="Road works warning sign">`,
     options: [
-      "Carriageway widens",
-      "Carriageway narrows ahead",
-      "Tunnel ahead",
-      "Lane ends — merge"
+      "Pedestrians working — no entry",
+      "Road works ahead — slow down and follow temporary signs",
+      "Car repair workshop",
+      "End of road"
     ],
     answer: 1,
-    explain: "Per Highway Code Section B.II (Warning Signs), a red triangle with two lines converging downward warns that the carriageway narrows ahead. Reduce speed and be ready to give way to oncoming traffic."
+    explain: "Per Highway Code Section B.II (Warning Signs), the road-works warning triangle (worker with shovel) tells you there are construction or repair works ahead. Slow down, watch for workers, and follow any temporary signs or flag-person directions."
   }
 ];

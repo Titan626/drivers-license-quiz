@@ -4,7 +4,15 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="Free Nigerian VIO drivers license practice test — open source, mobile-friendly, with timer, shuffle, and pass/fail scoring." />
+<meta name="theme-color" content="#008751" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content="VIO Quiz" />
 <title>VIO Mock Quiz — Nigerian Driver's License</title>
+<link rel="manifest" href="manifest.json" />
+<link rel="icon" type="image/svg+xml" href="icon.svg" />
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png" />
 <link rel="preconnect" href="https://rsms.me/" />
 <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
 <style>
@@ -478,6 +486,48 @@
     font-variant-numeric: tabular-nums;
   }
 
+  /* Study (third mode card) — visually de-emphasized vs the test cards */
+  .mode-grid.with-study { grid-template-columns: 1fr 1fr 1fr; }
+  .mode-card.study {
+    background: var(--surface-2);
+  }
+  .mode-card.study:hover {
+    border-color: var(--border-strong);
+    background: var(--surface-2);
+  }
+  .mode-card.study .mode-label { color: var(--text-secondary); }
+
+  /* Topic chips for study screen */
+  .topic-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 18px;
+  }
+  .topic-chip {
+    padding: 5px 10px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text-secondary);
+    border-radius: 999px;
+    font-size: 12px;
+    font-family: inherit;
+    font-weight: 500;
+    cursor: pointer;
+    letter-spacing: -0.005em;
+    transition: background 0.12s ease, border-color 0.12s ease, color 0.12s ease;
+  }
+  .topic-chip:hover {
+    background: var(--surface-2);
+    color: var(--text);
+    border-color: var(--border-strong);
+  }
+  .topic-chip.active {
+    background: var(--green-soft);
+    border-color: var(--green-border);
+    color: var(--green);
+  }
+
   .resume-banner {
     display: flex;
     align-items: center;
@@ -679,7 +729,8 @@
     .nav-buttons { width: 100%; }
     button.nav { flex: 1; justify-content: center; height: 40px; font-size: 14px; }
 
-    .mode-grid { grid-template-columns: 1fr; }
+    .mode-grid,
+    .mode-grid.with-study { grid-template-columns: 1fr; }
     .start-title { font-size: 22px; }
     .start-desc { font-size: 13px; }
 
@@ -738,6 +789,9 @@
   let timerInterval = null;
   let reviewIndex = 0;
   let reviewList = [];
+  let studyDeck = [];      // current filtered deck of questions for study mode
+  let studyIndex = 0;
+  let studyTopic = null;   // null = "All"
 
   // ===== Utilities =====
   function shuffle(arr) {
@@ -960,7 +1014,7 @@
         <h2 class="start-title">Pass your VIO test with confidence.</h2>
         <p class="start-desc">A timed practice test based on the FRSC Highway Code. Choose how many questions you want to attempt.</p>
       </div>
-      <div class="mode-grid">
+      <div class="mode-grid with-study">
         <button class="mode-card" data-mode="20">
           <span class="mode-label">Quick</span>
           <span class="mode-name">20 Questions</span>
@@ -971,6 +1025,11 @@
           <span class="mode-name">40 Questions</span>
           <span class="mode-meta">40 minutes · pass at ${PASS_THRESHOLD}%</span>
         </button>
+        <button class="mode-card study" data-mode="study">
+          <span class="mode-label">Study</span>
+          <span class="mode-name">Flashcards</span>
+          <span class="mode-meta">Browse all · no timer</span>
+        </button>
       </div>
       ${resumeHtml}
       ${bestHtml}
@@ -978,7 +1037,11 @@
     `;
 
     document.querySelectorAll('.mode-card').forEach(btn => {
-      btn.addEventListener('click', () => startQuiz(parseInt(btn.dataset.mode, 10)));
+      btn.addEventListener('click', () => {
+        const m = btn.dataset.mode;
+        if (m === 'study') startStudy();
+        else startQuiz(parseInt(m, 10));
+      });
     });
     const resumeBtn = document.getElementById('resumeBtn');
     if (resumeBtn) resumeBtn.addEventListener('click', resumeQuiz);
@@ -1217,6 +1280,110 @@
     renderResult({ mode: mode });
   }
 
+  // ===== Study / Flashcard mode =====
+  function startStudy() {
+    studyTopic = null;
+    studyIndex = 0;
+    studyDeck = shuffle(window.QUESTIONS).map(q => ({
+      ...q,
+      displayOrder: shuffle(q.options.map((_, i) => i))
+    }));
+    screen = 'study';
+    stopTimer();
+    document.getElementById('timer').hidden = true;
+    renderStudy();
+  }
+
+  function setStudyTopic(topic) {
+    studyTopic = topic;
+    studyIndex = 0;
+    const pool = topic
+      ? window.QUESTIONS.filter(q => q.topic === topic)
+      : window.QUESTIONS;
+    studyDeck = shuffle(pool).map(q => ({
+      ...q,
+      displayOrder: shuffle(q.options.map((_, i) => i))
+    }));
+    renderStudy();
+  }
+
+  function renderStudy() {
+    setHeader('Study', studyTopic ? studyTopic + ' · Flashcards' : 'All topics · Flashcards', true);
+    const total = studyDeck.length;
+    renderProgress(total ? ((studyIndex + 1) / total) * 100 : 0);
+    document.getElementById('timer').hidden = true;
+
+    const chips = ['All', ...TOPICS].map(t => {
+      const value = t === 'All' ? null : t;
+      const active = (studyTopic === value) ? ' active' : '';
+      return `<button class="topic-chip${active}" data-topic="${t === 'All' ? '' : escapeHtml(t)}">${escapeHtml(t)}</button>`;
+    }).join('');
+
+    if (!total) {
+      document.getElementById('card').innerHTML = `
+        <div class="topic-chips">${chips}</div>
+        <div class="result">
+          <div class="result-message">No questions in this topic yet.</div>
+          <button class="nav primary" id="studyDoneBtn">← Back to start</button>
+        </div>
+      `;
+      wireStudyChips();
+      document.getElementById('studyDoneBtn').addEventListener('click', renderStart);
+      return;
+    }
+
+    const q = studyDeck[studyIndex];
+    const optionsHtml = q.displayOrder.map((origIdx, displayIdx) => {
+      const opt = q.options[origIdx];
+      const cls = 'option' + (origIdx === q.answer ? ' correct' : '');
+      return `
+        <button class="${cls}" disabled>
+          <span class="option-letter">${String.fromCharCode(65 + displayIdx)}</span>
+          <span>${escapeHtml(opt)}</span>
+        </button>
+      `;
+    }).join('');
+
+    document.getElementById('card').innerHTML = `
+      <div class="topic-chips">${chips}</div>
+      <div class="topic-tag">${escapeHtml(q.topic)}</div>
+      <div class="q-number">Card ${studyIndex + 1} of ${total}</div>
+      <h2 class="q-text">${escapeHtml(q.q)}</h2>
+      ${q.sign ? `<div class="sign-wrap">${q.sign}</div>` : ''}
+      <div class="options">${optionsHtml}</div>
+      <div class="explanation show">
+        <strong>Explanation</strong>
+        <span>${escapeHtml(q.explain)}</span>
+      </div>
+      <div class="controls">
+        <div class="score">${studyIndex + 1} / ${total}</div>
+        <div class="nav-buttons">
+          <button class="nav prev" id="studyPrev" ${studyIndex === 0 ? 'disabled' : ''}>← Prev</button>
+          <button class="nav next" id="studyNext" ${studyIndex === total - 1 ? 'disabled' : ''}>Next →</button>
+          <button class="nav" id="studyDoneBtn">Done</button>
+        </div>
+      </div>
+    `;
+
+    wireStudyChips();
+    document.getElementById('studyPrev').addEventListener('click', () => {
+      if (studyIndex > 0) { studyIndex--; renderStudy(); }
+    });
+    document.getElementById('studyNext').addEventListener('click', () => {
+      if (studyIndex < studyDeck.length - 1) { studyIndex++; renderStudy(); }
+    });
+    document.getElementById('studyDoneBtn').addEventListener('click', renderStart);
+  }
+
+  function wireStudyChips() {
+    document.querySelectorAll('.topic-chip').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const t = btn.dataset.topic;
+        setStudyTopic(t || null);
+      });
+    });
+  }
+
   // ===== Keyboard =====
   function onKeyDown(e) {
     if (e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA')) return;
@@ -1224,6 +1391,7 @@
     if (screen === 'start') {
       if (e.key === '1') startQuiz(20);
       else if (e.key === '2') startQuiz(40);
+      else if (e.key === '3' || e.key.toLowerCase() === 's') startStudy();
       else if (e.key === 'Enter') {
         const saved = loadState();
         if (saved) resumeQuiz();
@@ -1269,6 +1437,26 @@
       if (e.key === 'Enter') {
         startQuiz(mode);
       }
+      return;
+    }
+
+    if (screen === 'study') {
+      if (e.key === 'ArrowLeft') {
+        if (studyIndex > 0) { studyIndex--; renderStudy(); }
+        e.preventDefault();
+      } else if (e.key === 'ArrowRight' || e.key === 'Enter') {
+        if (studyIndex < studyDeck.length - 1) { studyIndex++; renderStudy(); }
+        e.preventDefault();
+      } else if (e.key === 'Escape') {
+        renderStart();
+      } else {
+        // Number keys 1-5 switch topic chips: 1=All, 2..5=topics
+        const idx = ['1', '2', '3', '4', '5'].indexOf(e.key);
+        if (idx >= 0) {
+          setStudyTopic(idx === 0 ? null : TOPICS[idx - 1]);
+          e.preventDefault();
+        }
+      }
     }
   }
 
@@ -1277,6 +1465,14 @@
   document.getElementById('themeToggle').addEventListener('click', toggleTheme);
   document.addEventListener('keydown', onKeyDown);
   renderStart();
+
+  // ===== Service worker (PWA install + offline) =====
+  // Skipped on file:// — service workers require http(s).
+  if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('sw.js').catch(() => { /* no-op */ });
+    });
+  }
 })();
 </script>
 </body>

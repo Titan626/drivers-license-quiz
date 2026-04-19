@@ -3,14 +3,16 @@
 A free, open-source practice test for the Nigerian Vehicle Inspection Officer (VIO) driver's license exam, based on the FRSC Highway Code.
 
 - **Zero dependencies** — single HTML file + one JS file. No build step.
-- **Mobile-friendly** — works on any phone or laptop browser.
+- **Mobile-friendly** — works on any phone or laptop browser, installable as a PWA.
 - **Realistic** — 60 seconds per question (matches actual VIO pace), 70% pass mark.
-- **Two modes** — 20-question quick test (~20 min) or 40-question full test (~40 min).
-- **Smart features** — timer with warning states, question + option shuffle, light/dark mode, keyboard shortcuts, localStorage progress save, review-wrong-answers mode, best-score tracking.
+- **Three modes** — 20-question quick test, 40-question full test, or untimed Flashcards (Study mode).
+- **80 questions** sourced directly from the FRSC Highway Code, balanced across Road Signs, Traffic Rules, Vehicle Knowledge, and Highway Code.
+- **Smart features** — timer with warning states, question + option shuffle, light/dark mode, keyboard shortcuts, localStorage progress save, review-wrong-answers mode, best-score tracking, and offline support.
 
 ## Features
 
 - **Timed quiz** with visible countdown; auto-submits when time runs out.
+- **Flashcards / Study mode** — browse all 80 questions with answers + explanations visible. Filter by topic. No timer, no score.
 - **Question shuffle** — different question set and option order every attempt.
 - **Topic-balanced 20Q mode** — five questions from each of the four topics (Road Signs, Traffic Rules, Vehicle Knowledge, Highway Code).
 - **Pass/Fail verdict** at 70% threshold, with topic-level breakdown.
@@ -18,6 +20,7 @@ A free, open-source practice test for the Nigerian Vehicle Inspection Officer (V
 - **Resume in progress** — refresh the page and pick up where you left off.
 - **Best scores** stored per mode in your browser.
 - **Light/Dark mode** with `prefers-color-scheme` autodetection.
+- **PWA installable** — add to your phone's home screen, works offline.
 - **Full keyboard support**.
 
 ## Run locally
@@ -29,6 +32,17 @@ open index.html        # macOS
 xdg-open index.html    # Linux
 start index.html       # Windows
 ```
+
+> Note: the offline service worker only activates over `http(s)://`, not `file://`. To test PWA install/offline locally, run any static server in the project folder, e.g. `python3 -m http.server 8000` then open `http://localhost:8000`.
+
+## Install on your phone
+
+Once deployed (or running on a local server), the app is a Progressive Web App. To install:
+
+- **Android (Chrome)**: open the site → menu → **Install app** (or "Add to Home screen").
+- **iOS (Safari)**: open the site → Share button → **Add to Home Screen**.
+
+After install, the app launches full-screen with a green status bar, runs offline, and behaves like a native app.
 
 ## Deploy to Netlify
 
@@ -49,7 +63,9 @@ Or via Git:
 | `A` / `B` / `C` / `D` or `1`–`4` | Pick option |
 | `←` / `→` | Previous / next question |
 | `Enter` | Advance after answering, or start/retake |
-| `Escape` | Exit review mode |
+| `Escape` | Exit review or study mode |
+| `S` (start screen) | Open Study / Flashcards |
+| `1`–`5` (study mode) | Switch topic chip (1 = All) |
 
 ## Tech stack
 

@@ -2,11 +2,14 @@
 
 A free, open-source practice test for the Nigerian Vehicle Inspection Officer (VIO) driver's license exam, based on the FRSC Highway Code.
 
+![license](https://img.shields.io/badge/license-MIT-blue.svg) ![no build](https://img.shields.io/badge/build-none-green.svg) ![PWA](https://img.shields.io/badge/PWA-installable-success.svg)
+
 - **Zero dependencies** — single HTML file + one JS file. No build step.
 - **Mobile-friendly** — works on any phone or laptop browser, installable as a PWA.
 - **Realistic** — 60 seconds per question (matches actual VIO pace), 70% pass mark.
 - **Three modes** — 20-question quick test, 40-question full test, or untimed Flashcards (Study mode).
 - **80 questions** sourced directly from the FRSC Highway Code, balanced across Road Signs, Traffic Rules, Vehicle Knowledge, and Highway Code.
+- **Authentic road signs** — 19 of 20 road-sign questions use the official Nigerian sign designs (yellow/red, FRSC-issued) sourced from Wikimedia Commons.
 - **Smart features** — timer with warning states, question + option shuffle, light/dark mode, keyboard shortcuts, localStorage progress save, review-wrong-answers mode, best-score tracking, and offline support.
 
 ## Features
@@ -82,6 +85,14 @@ Want to add or improve questions? See [CONTRIBUTING.md](CONTRIBUTING.md). All qu
 
 This is a **practice test only**. Always refer to the official [FRSC Highway Code](https://frsc.gov.ng/) for authoritative information. Question content is community-contributed and may contain errors — open an issue or PR if you spot one.
 
+## Acknowledgments
+
+- Nigerian road sign SVGs sourced from [Wikimedia Commons](https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Nigeria) (public domain under Nigerian copyright law — government works).
+- Question content paraphrased from the Federal Road Safety Corps (FRSC) Highway Code.
+- [Inter](https://rsms.me/inter/) font by Rasmus Andersson.
+
 ## License
 
 [MIT](LICENSE) — use it however you like.
+
+Built with ❤️ by [Iyanu](https://github.com/Titan626).

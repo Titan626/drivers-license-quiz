@@ -690,6 +690,77 @@
   footer .credit { margin-top: 10px; opacity: 0.8; }
   .break-mobile { display: none; }
 
+  /* Confirm dialog — centered modal on desktop, bottom sheet on phone */
+  .dialog-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(8, 9, 10, 0.5);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    padding: 24px;
+    opacity: 0;
+    transition: opacity 160ms ease;
+  }
+  .dialog-backdrop:not([hidden]) { opacity: 1; }
+  .dialog {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 20px 20px 16px;
+    max-width: 380px;
+    width: 100%;
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.24), 0 2px 8px rgba(0, 0, 0, 0.08);
+    transform: translateY(-4px) scale(0.98);
+    transition: transform 160ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .dialog-backdrop:not([hidden]) .dialog { transform: translateY(0) scale(1); }
+  .dialog-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .dialog-body {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin: 0 0 20px;
+  }
+  .dialog-actions {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+  }
+  .dialog-actions .nav { min-width: 88px; justify-content: center; }
+  .dialog-actions .nav.danger {
+    background: var(--red);
+    color: #ffffff;
+    border-color: var(--red);
+  }
+  .dialog-actions .nav.danger:hover { opacity: 0.92; }
+
+  /* Phone — bottom sheet */
+  @media (max-width: 640px) {
+    .dialog-backdrop { padding: 0; align-items: flex-end; }
+    .dialog {
+      max-width: none;
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+      border-bottom: none;
+      padding: 18px 16px calc(16px + env(safe-area-inset-bottom));
+      transform: translateY(100%);
+    }
+    .dialog-backdrop:not([hidden]) .dialog { transform: translateY(0); }
+    .dialog-title { font-size: 16px; margin-bottom: 6px; }
+    .dialog-body { font-size: 14px; margin-bottom: 18px; }
+    .dialog-actions { flex-direction: column-reverse; gap: 6px; }
+    .dialog-actions .nav { width: 100%; min-height: 44px; }
+  }
+
   /* Tablet */
   @media (max-width: 640px) {
     body { padding: 16px 12px; }
@@ -778,6 +849,17 @@
     Always refer to the <a href="https://frsc.gov.ng/" target="_blank" rel="noopener">FRSC Highway Code</a> for official information.
     <div class="credit">Built with ❤️ by <a href="https://github.com/Titan626" target="_blank" rel="noopener">Iyanu</a></div>
   </footer>
+</div>
+
+<div id="dialog-backdrop" class="dialog-backdrop" hidden>
+  <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="dialog-title" aria-describedby="dialog-body">
+    <h2 id="dialog-title" class="dialog-title"></h2>
+    <p id="dialog-body" class="dialog-body"></p>
+    <div class="dialog-actions">
+      <button class="nav" id="dialog-cancel" type="button">Cancel</button>
+      <button class="nav" id="dialog-ok" type="button">Confirm</button>
+    </div>
+  </div>
 </div>
 
 <script src="questions.js"></script>
@@ -988,10 +1070,51 @@
     document.getElementById('exitBtn').hidden = !inSession;
   }
 
-  function exitToStart() {
+  function showConfirm({ title, body, confirmLabel = 'Confirm', cancelLabel = 'Cancel', danger = false } = {}) {
+    return new Promise((resolve) => {
+      const backdrop = document.getElementById('dialog-backdrop');
+      const okBtn = document.getElementById('dialog-ok');
+      const cancelBtn = document.getElementById('dialog-cancel');
+      document.getElementById('dialog-title').textContent = title;
+      document.getElementById('dialog-body').textContent = body;
+      okBtn.textContent = confirmLabel;
+      cancelBtn.textContent = cancelLabel;
+      okBtn.classList.toggle('danger', !!danger);
+      backdrop.hidden = false;
+      const close = (result) => {
+        backdrop.hidden = true;
+        okBtn.removeEventListener('click', onOk);
+        cancelBtn.removeEventListener('click', onCancel);
+        backdrop.removeEventListener('click', onBackdrop);
+        document.removeEventListener('keydown', onKey, true);
+        resolve(result);
+      };
+      const onOk = () => close(true);
+      const onCancel = () => close(false);
+      const onBackdrop = (e) => { if (e.target === backdrop) close(false); };
+      const onKey = (e) => {
+        if (e.key === 'Escape') { e.stopPropagation(); close(false); }
+        else if (e.key === 'Enter') { e.stopPropagation(); close(true); }
+      };
+      okBtn.addEventListener('click', onOk);
+      cancelBtn.addEventListener('click', onCancel);
+      backdrop.addEventListener('click', onBackdrop);
+      document.addEventListener('keydown', onKey, true);
+      requestAnimationFrame(() => okBtn.focus());
+    });
+  }
+
+  async function exitToStart() {
     // Quiz mode has unsaved progress + active timer — confirm before discarding.
     if (screen === 'quiz') {
-      if (!window.confirm('Exit this quiz? Your progress will be lost.')) return;
+      const ok = await showConfirm({
+        title: 'Exit this quiz?',
+        body: 'Your progress will be lost.',
+        confirmLabel: 'Exit quiz',
+        cancelLabel: 'Cancel',
+        danger: true
+      });
+      if (!ok) return;
       stopTimer();
       clearState();
     }
@@ -1412,6 +1535,7 @@
   // ===== Keyboard =====
   function onKeyDown(e) {
     if (e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA')) return;
+    if (!document.getElementById('dialog-backdrop').hidden) return;
 
     if (screen === 'start') {
       if (e.key === '1') startQuiz(20);

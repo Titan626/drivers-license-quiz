@@ -754,6 +754,9 @@
       </div>
       <div class="header-meta">
         <div class="timer" id="timer" hidden><span class="timer-icon"></span><span id="timerText">00:00</span></div>
+        <button class="icon-btn" id="exitBtn" aria-label="Exit" title="Exit to start screen" hidden>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
+        </button>
         <button class="icon-btn" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
           <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
         </button>
@@ -888,18 +891,19 @@
   // ===== Question set =====
   function buildQuestionSet(targetMode) {
     const all = window.QUESTIONS;
-    let chosen;
-    if (targetMode === 20) {
-      const perTopic = 5;
-      chosen = [];
-      TOPICS.forEach(t => {
-        const pool = all.map((q, i) => ({ q, i })).filter(x => x.q.topic === t);
-        chosen = chosen.concat(pickN(pool, perTopic));
-      });
-      chosen = shuffle(chosen);
-    } else {
-      chosen = shuffle(all.map((q, i) => ({ q, i })));
+    const perTopic = Math.floor(targetMode / TOPICS.length);
+    let chosen = [];
+    TOPICS.forEach(t => {
+      const pool = all.map((q, i) => ({ q, i })).filter(x => x.q.topic === t);
+      chosen = chosen.concat(pickN(pool, perTopic));
+    });
+    // Top up if targetMode isn't an exact multiple of TOPICS.length
+    if (chosen.length < targetMode) {
+      const used = new Set(chosen.map(x => x.i));
+      const remaining = all.map((q, i) => ({ q, i })).filter(x => !used.has(x.i));
+      chosen = chosen.concat(pickN(remaining, targetMode - chosen.length));
     }
+    chosen = shuffle(chosen);
     return chosen.map(x => ({
       ...x.q,
       originalIndex: x.i,
@@ -971,6 +975,19 @@
     document.getElementById('headerTitle').textContent = title;
     document.getElementById('headerSubtitle').textContent = subtitle;
     document.getElementById('progressWrap').hidden = !showProgress;
+    // Exit button is visible only during quiz / review / study (not start / result)
+    const inSession = screen === 'quiz' || screen === 'review' || screen === 'study';
+    document.getElementById('exitBtn').hidden = !inSession;
+  }
+
+  function exitToStart() {
+    // Quiz mode has unsaved progress + active timer — confirm before discarding.
+    if (screen === 'quiz') {
+      if (!window.confirm('Exit this quiz? Your progress will be lost.')) return;
+      stopTimer();
+      clearState();
+    }
+    renderStart();
   }
   function renderProgress(pct) {
     document.getElementById('progressBar').style.width = pct + '%';
@@ -1463,6 +1480,7 @@
   // ===== Boot =====
   initTheme();
   document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+  document.getElementById('exitBtn').addEventListener('click', exitToStart);
   document.addEventListener('keydown', onKeyDown);
   renderStart();
 

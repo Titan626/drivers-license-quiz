@@ -2,6 +2,8 @@
 
 A free, open-source practice test for the Nigerian Vehicle Inspection Officer (VIO) driver's license exam, based on the FRSC Highway Code.
 
+**🚗 Live demo: [viomocktest.netlify.app](https://viomocktest.netlify.app/)**
+
 ![license](https://img.shields.io/badge/license-MIT-blue.svg) ![no build](https://img.shields.io/badge/build-none-green.svg) ![PWA](https://img.shields.io/badge/PWA-installable-success.svg)
 
 - **Zero dependencies** — single HTML file + one JS file. No build step.

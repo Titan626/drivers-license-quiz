@@ -868,6 +868,7 @@
   const STORAGE_STATE = 'vio_quiz_state';
   const STORAGE_BEST = 'vio_quiz_best';
   const STORAGE_THEME = 'vio_quiz_theme';
+  const STORAGE_RECENT = 'vio_quiz_recent';
 
   // ===== State =====
   let screen = 'start';        // 'start' | 'quiz' | 'result' | 'review'
@@ -971,21 +972,46 @@
       return raw ? JSON.parse(raw) : {};
     } catch (e) { return {}; }
   }
+  function loadRecent() {
+    try {
+      const raw = localStorage.getItem(STORAGE_RECENT);
+      const arr = raw ? JSON.parse(raw) : [];
+      return Array.isArray(arr) ? arr.filter(n => Number.isInteger(n)) : [];
+    } catch (e) { return []; }
+  }
+  function saveRecent(indexes) {
+    try { localStorage.setItem(STORAGE_RECENT, JSON.stringify(indexes)); } catch (e) {}
+  }
 
   // ===== Question set =====
+  // Prefer questions the user hasn't just seen: we pick from `unseen` first
+  // (pool minus the last completed attempt's indexes) and only fall back to
+  // `seen` when a topic doesn't have enough fresh questions to fill its quota.
   function buildQuestionSet(targetMode) {
     const all = window.QUESTIONS;
     const perTopic = Math.floor(targetMode / TOPICS.length);
+    const recent = new Set(loadRecent());
     let chosen = [];
     TOPICS.forEach(t => {
       const pool = all.map((q, i) => ({ q, i })).filter(x => x.q.topic === t);
-      chosen = chosen.concat(pickN(pool, perTopic));
+      const unseen = pool.filter(x => !recent.has(x.i));
+      const seen = pool.filter(x => recent.has(x.i));
+      let picked = pickN(unseen, perTopic);
+      if (picked.length < perTopic) {
+        picked = picked.concat(pickN(seen, perTopic - picked.length));
+      }
+      chosen = chosen.concat(picked);
     });
     // Top up if targetMode isn't an exact multiple of TOPICS.length
     if (chosen.length < targetMode) {
       const used = new Set(chosen.map(x => x.i));
-      const remaining = all.map((q, i) => ({ q, i })).filter(x => !used.has(x.i));
-      chosen = chosen.concat(pickN(remaining, targetMode - chosen.length));
+      const remainingUnseen = all.map((q, i) => ({ q, i })).filter(x => !used.has(x.i) && !recent.has(x.i));
+      const remainingSeen = all.map((q, i) => ({ q, i })).filter(x => !used.has(x.i) && recent.has(x.i));
+      let topUp = pickN(remainingUnseen, targetMode - chosen.length);
+      if (topUp.length < targetMode - chosen.length) {
+        topUp = topUp.concat(pickN(remainingSeen, targetMode - chosen.length - topUp.length));
+      }
+      chosen = chosen.concat(topUp);
     }
     chosen = shuffle(chosen);
     return chosen.map(x => ({
@@ -1301,6 +1327,7 @@
       timedOut: !!timedOut
     };
     saveBest(result);
+    saveRecent(session.questions.map(q => q.originalIndex));
     clearState();
     renderResult(result);
   }

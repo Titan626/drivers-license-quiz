@@ -3,18 +3,121 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Free Nigerian VIO drivers license practice test — open source, mobile-friendly, with timer, shuffle, and pass/fail scoring." />
+<title>VIO Mock Test — Free Nigerian Driver's License Quiz (FRSC Highway Code)</title>
+<meta name="description" content="Free Nigerian VIO mock test based on the FRSC Highway Code. 80 practice questions on road signs, traffic rules, and vehicle knowledge. Timed, with instant scoring. No signup. Works offline." />
+<link rel="canonical" href="https://viomocktest.netlify.app/" />
 <meta name="theme-color" content="#008751" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="default" />
 <meta name="apple-mobile-web-app-title" content="VIO Quiz" />
-<title>VIO Mock Quiz — Nigerian Driver's License</title>
+
+<!-- Open Graph (Facebook, WhatsApp, LinkedIn previews) -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="VIO Mock Quiz" />
+<meta property="og:title" content="VIO Mock Test — Free Nigerian Driver's License Quiz" />
+<meta property="og:description" content="Free practice test for the Nigerian VIO driver's license exam. 80 questions from the FRSC Highway Code, 70% pass mark, works offline." />
+<meta property="og:url" content="https://viomocktest.netlify.app/" />
+<meta property="og:image" content="https://viomocktest.netlify.app/icon-512.png" />
+<meta property="og:image:width" content="512" />
+<meta property="og:image:height" content="512" />
+<meta property="og:locale" content="en_NG" />
+
+<!-- Twitter / X card -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="VIO Mock Test — Free Nigerian Driver's License Quiz" />
+<meta name="twitter:description" content="Free practice test for the Nigerian VIO driver's license exam. 80 questions from the FRSC Highway Code." />
+<meta name="twitter:image" content="https://viomocktest.netlify.app/icon-512.png" />
+
 <link rel="manifest" href="manifest.json" />
 <link rel="icon" type="image/svg+xml" href="icon.svg" />
 <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png" />
 <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 <link rel="preconnect" href="https://rsms.me/" />
 <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+
+<!-- Structured data: WebApplication + Quiz + FAQ for rich results -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "VIO Mock Quiz",
+  "alternateName": "Nigerian Driver's License Mock Test",
+  "url": "https://viomocktest.netlify.app/",
+  "description": "Free Nigerian VIO drivers license mock test based on the FRSC Highway Code.",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "Any",
+  "inLanguage": "en-NG",
+  "isAccessibleForFree": true,
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "NGN" },
+  "author": { "@type": "Person", "name": "Iyanu", "url": "https://github.com/Titan626" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Quiz",
+  "name": "Nigerian VIO Mock Test",
+  "about": { "@type": "Thing", "name": "Nigerian Driver's License Exam (VIO / FRSC)" },
+  "educationalLevel": "Beginner",
+  "inLanguage": "en-NG",
+  "isAccessibleForFree": true,
+  "learningResourceType": "Practice Test",
+  "teaches": "Nigerian road signs, traffic rules, vehicle knowledge, and the FRSC Highway Code",
+  "provider": {
+    "@type": "Organization",
+    "name": "VIO Mock Quiz",
+    "url": "https://viomocktest.netlify.app/"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the Nigerian VIO test?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The VIO (Vehicle Inspection Officer) test is the theory and practical examination required to obtain a Nigerian driver's license. The theory portion is based on the FRSC Highway Code and covers road signs, traffic rules, and vehicle knowledge."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many questions are in the VIO theory test?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The official VIO theory test typically has 40 questions. This mock quiz offers both a 20-question quick test and a 40-question full test, both at the same 70% pass mark."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the pass mark for the Nigerian driver's license test?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Nigerian VIO theory test pass mark is 70%."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this VIO mock quiz free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. It is 100% free, open source, requires no signup, and works offline after the first visit."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does this cover Nigerian road signs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The question bank includes 20 road-sign questions using the official yellow-and-red Nigerian road sign designs issued by the Federal Road Safety Corps (FRSC)."
+      }
+    }
+  ]
+}
+</script>
 <style>
   :root {
     /* Linear-style palette, Nigerian green accent */

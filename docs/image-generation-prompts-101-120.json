@@ -1,0 +1,27 @@
+{
+  "tool": "built-in image_gen",
+  "date": "2026-10-02",
+  "reference": "https://frsc.gov.ng/wp-content/uploads/2025/04/MI-III-COMPENDIUM-2025.pdf#page=4",
+  "assets": [
+    {
+      "file": "illustrations/bend-right.png",
+      "prompt": "Use case: scientific-educational. Asset type: one road-sign study illustration for a Nigerian driving practice quiz. Subject: A Nigerian warning sign for a dangerous bend to the right ahead: one upright equilateral triangle with a thick red border, flat yellow interior, and a single thick black road-shaped stroke that starts vertically at its bottom then curves smoothly to the right at its top. No arrowhead, no text. Match the Nigerian FRSC yellow/red sign convention. Style: clean flat educational sign graphic, front-facing and geometrically clear; crisp edges, no perspective, no 3D, no texture or shadows. Composition: ONE sign centred and occupying 78 percent of a square pure white canvas. Avoid poles, scenery, captions, logos, watermarks or any extra signs. Colours and symbols must be clear at 144px display size."
+    },
+    {
+      "file": "illustrations/carriageway-narrows.png",
+      "prompt": "Use case: scientific-educational. Asset type: one road-sign study illustration for a Nigerian driving practice quiz. Subject: A Nigerian warning sign for the carriageway narrowing on BOTH sides: one upright equilateral triangle, thick red border and flat yellow interior. Inside, two black vertical road-edge strokes: far apart at the bottom, bending inward symmetrically towards the top, then continuing parallel nearer each other. No bridge pictogram, no arrows, no text. Style: clean flat educational sign graphic, front-facing and geometrically clear; crisp edges, no perspective, no 3D, no texture or shadows. Composition: ONE sign centred and occupying 78 percent of a square pure white canvas. Avoid poles, scenery, captions, logos, watermarks or any extra signs. Colours and symbols must be clear at 144px display size."
+    },
+    {
+      "file": "illustrations/t-junction.png",
+      "prompt": "Use case: scientific-educational. Asset type: one road-sign study illustration for a Nigerian driving practice quiz. Subject: A Nigerian warning sign for a T-junction ahead: upright equilateral triangle with thick red border and flat yellow interior. Inside is a bold black capital T shape: a vertical approach road from the bottom meets a horizontal road across the top and ENDS there. Only those three branches, no upward fourth branch and no arrowheads. No text. Style: clean flat educational sign graphic, front-facing and geometrically clear; crisp edges, no perspective, no 3D, no texture or shadows. Composition: ONE sign centred and occupying 78 percent of a square pure white canvas. Avoid poles, scenery, captions, logos, watermarks or any extra signs. Colours and symbols must be clear at 144px display size."
+    },
+    {
+      "file": "illustrations/compulsory-u-turn.png",
+      "prompt": "Use case: scientific-educational. Asset type: one road-sign study illustration for a Nigerian driving practice quiz. Subject: A Nigerian mandatory U-turn road sign: a blue circle with one white inverted U-shaped arrow. Its stem goes straight upward on the right, curves over the top towards the left, then descends on the left ending in a downward arrowhead. Flat blue field, plain white U-turn arrow, no red border, no diagonal bar, no text. Style: clean flat educational sign graphic, front-facing and geometrically clear; crisp edges, no perspective, no 3D, no texture or shadows. Composition: ONE sign centred and occupying 78 percent of a square pure white canvas. Avoid poles, scenery, captions, logos, watermarks or any extra signs. Colours and symbols must be clear at 144px display size."
+    },
+    {
+      "file": "illustrations/rest-area.png",
+      "prompt": "Use case: scientific-educational. Asset type: one road-sign study illustration for a Nigerian driving practice quiz. Subject: A Nigerian informative rest-area sign matching the FRSC chart: a green rectangular panel, exact white uppercase sans-serif text on two centred lines: REST then AREA. No other words, numbers or pictograms. Style: clean flat educational sign graphic, front-facing and geometrically clear; crisp edges, no perspective, no 3D, no texture or shadows. Composition: ONE sign centred and occupying 78 percent of a square pure white canvas. Avoid poles, scenery, captions, logos, watermarks or any extra signs. Colours and symbols must be clear at 144px display size."
+    }
+  ]
+}

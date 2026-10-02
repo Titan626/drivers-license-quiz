@@ -7,7 +7,7 @@
  * {
  *   topic:   "Road Signs" | "Traffic Rules" | "Vehicle Knowledge" | "Highway Code"
  *   q:       "The question text"
- *   sign:    "<svg ...>...</svg>"   // optional — only for road-sign questions
+ *   sign:    "<svg ...>...</svg>"   // optional — sign or relevant illustration
  *   options: ["A", "B", "C", "D"]   // 2–4 options
  *   answer:  0                       // zero-based index of the correct option
  *   explain: "Why this answer is correct."
@@ -16,7 +16,9 @@
  * Notes for contributors:
  * - Keep options similar in length so position alone doesn't hint at the answer.
  * - The app shuffles questions and option order at runtime, so don't rely on order.
+ * - Use local illustrations with descriptive alt text; precache every new asset.
  * - For SVG signs, use a 200x200 viewBox and inline colors (no external assets).
+ * - New questions should include sources: [{ label, url }] for answer verification.
  * - Cite the FRSC Highway Code as the source of truth.
  */
 
@@ -484,7 +486,7 @@ window.QUESTIONS = [
   },
   {
     topic: "Highway Code",
-    q: "Per the FRSC Act, a Nigerian driver's licence is issued for a validity period of:",
+    q: "Under the historical licence-validity provision of the FRSC Act 2007, a driver's licence is issued for:",
     options: [
       "6 months",
       "1 year",
@@ -492,7 +494,7 @@ window.QUESTIONS = [
       "Lifetime"
     ],
     answer: 2,
-    explain: "Per the FRSC Act 2007, the validity period for drivers' licences shall be 3 years, subject to renewal at expiration. Driving with an expired licence is an offence (DWL)."
+    explain: "The FRSC Act 2007 provision describes a three-year validity period, subject to renewal. This is a historical-law question, not the full current application guidance: the FRSC driver's licence portal now offers both three-year and five-year validity options. Check the official portal when applying or renewing."
   },
   {
     topic: "Highway Code",
@@ -867,7 +869,7 @@ window.QUESTIONS = [
       "Wear an adult seat belt"
     ],
     answer: 1,
-    explain: "Per Highway Code Section B.V (The Child), children 0–12 months should NOT ride in the front. If carried in the front for any reason, they must be in a rear-facing child restraint. Never carry a child on your lap."
+    explain: "Use a correctly installed rear-facing child restraint in the rear seat, following the seat and vehicle manufacturers’ instructions. Never place a rear-facing restraint in front of an active passenger airbag: deployment can cause fatal injury. NHTSA recommends that children under 13 ride in the back seat. Never carry a child on your lap."
   },
   {
     topic: "Vehicle Knowledge",
@@ -1015,5 +1017,744 @@ window.QUESTIONS = [
     ],
     answer: 1,
     explain: "Per Highway Code Section B.II (Warning Signs), the road-works warning triangle (worker with shovel) tells you there are construction or repair works ahead. Slow down, watch for workers, and follow any temporary signs or flag-person directions."
+  },
+
+  // ===== SOURCE-CHECKED EXPANSION: QUESTIONS 81–100 =====
+  {
+    "topic": "Road Signs",
+    "q": "What must you do when approaching the inverted triangular sign shown?",
+    "sign": "<img src=\"illustrations/give-way.png\" alt=\"Inverted triangle with a red border, yellow centre and the words GIVE WAY\" width=\"512\" height=\"512\">",
+    "options": [
+      "Always stop, even if the road is completely clear",
+      "Give way to traffic on the road you are joining",
+      "Proceed because other traffic must wait for you",
+      "Sound your horn before entering the junction"
+    ],
+    "answer": 1,
+    "explain": "Give Way requires you to yield to traffic on the road you are joining. Stop if needed; unlike a STOP sign, it does not require a complete stop when the way is clear.",
+    "sources": [
+      {
+        "label": "FRSC MI-III Compendium 2025, §1.4, page 4",
+        "url": "https://frsc.gov.ng/wp-content/uploads/2025/04/MI-III-COMPENDIUM-2025.pdf#page=4"
+      }
+    ]
+  },
+  {
+    "topic": "Road Signs",
+    "q": "What restriction does the blue sign with a red cross impose?",
+    "sign": "<img src=\"illustrations/no-stopping.png\" alt=\"Blue circular sign with a red border and two diagonal red bars forming an X\" width=\"512\" height=\"512\">",
+    "options": [
+      "Parking is allowed for a short collection",
+      "Only heavy vehicles are prohibited here",
+      "Stopping is allowed but parking is prohibited",
+      "No stopping or parking"
+    ],
+    "answer": 3,
+    "explain": "The red X means No Stopping. The single diagonal used for No Parking is different. A traffic instruction or an emergency may still require you to stop.",
+    "sources": [
+      {
+        "label": "FRSC MI-III Compendium 2025, §1.4, page 4",
+        "url": "https://frsc.gov.ng/wp-content/uploads/2025/04/MI-III-COMPENDIUM-2025.pdf#page=4"
+      }
+    ]
+  },
+  {
+    "topic": "Road Signs",
+    "q": "What does the number on this blue circular sign indicate?",
+    "sign": "<img src=\"illustrations/minimum-speed-30.png\" alt=\"Blue circular sign with the white number 30\" width=\"512\" height=\"512\">",
+    "options": [
+      "A minimum speed of 30 km/h when conditions permit",
+      "A maximum speed of 30 km/h in all conditions",
+      "A distance of 30 km to the next junction",
+      "A speed recommendation with no regulatory meaning"
+    ],
+    "answer": 0,
+    "explain": "A number in a blue mandatory circle specifies a minimum speed; a red-bordered speed sign specifies a maximum. The FRSC chart identifies this blue 30 sign as a minimum-speed sign. Never maintain a speed that is unsafe for the conditions.",
+    "sources": [
+      {
+        "label": "FRSC MI-III Compendium 2025, §1.4, page 4",
+        "url": "https://frsc.gov.ng/wp-content/uploads/2025/04/MI-III-COMPENDIUM-2025.pdf#page=4"
+      }
+    ]
+  },
+  {
+    "topic": "Road Signs",
+    "q": "Which turning movement is prohibited by the sign shown?",
+    "sign": "<img src=\"illustrations/no-right-turn.png\" alt=\"Yellow circular sign with a red border, black right-turn arrow and diagonal red bar\" width=\"512\" height=\"512\">",
+    "options": [
+      "A left turn at the junction",
+      "Continuing straight ahead",
+      "A right turn at the junction",
+      "Every movement through the junction"
+    ],
+    "answer": 2,
+    "explain": "The crossed-out right-turn arrow prohibits turning right. It does not require you to turn right: compulsory directions use a blue sign without the red prohibition bar.",
+    "sources": [
+      {
+        "label": "FRSC MI-III Compendium 2025, §1.4, page 4",
+        "url": "https://frsc.gov.ng/wp-content/uploads/2025/04/MI-III-COMPENDIUM-2025.pdf#page=4"
+      }
+    ]
+  },
+  {
+    "topic": "Road Signs",
+    "q": "Which destination does this green direction sign indicate?",
+    "sign": "<img src=\"illustrations/airport-direction.png\" alt=\"Green right-pointing sign panel containing a white aeroplane silhouette\" width=\"512\" height=\"512\">",
+    "options": [
+      "A hospital",
+      "An airport",
+      "A railway station",
+      "A filling station"
+    ],
+    "answer": 1,
+    "explain": "The aeroplane pictogram identifies an airport. The pointed direction panel guides you towards it; it is an information sign, not a warning that aircraft will land on the road.",
+    "sources": [
+      {
+        "label": "FRSC MI-III Compendium 2025, §1.4, page 4",
+        "url": "https://frsc.gov.ng/wp-content/uploads/2025/04/MI-III-COMPENDIUM-2025.pdf#page=4"
+      }
+    ]
+  },
+  {
+    "topic": "Traffic Rules",
+    "q": "May you drive into the chevron area enclosed by the continuous white line shown?",
+    "sign": "<img class=\"diagram-image\" src=\"illustrations/solid-chevron-marking.png\" alt=\"Top view of two upward traffic lanes around white chevrons enclosed by an unbroken white boundary\" width=\"512\" height=\"512\">",
+    "options": [
+      "Yes, whenever the adjacent lane is busy",
+      "Yes, if you signal before entering it",
+      "Yes, because chevrons are an extra traffic lane",
+      "No, you must keep out of the marked area"
+    ],
+    "answer": 3,
+    "explain": "A continuous boundary around chevron markings means vehicles must not enter that area. Do not treat it as an overtaking lane. A broken boundary has a different rule.",
+    "sources": [
+      {
+        "label": "FRSC MI-III Compendium 2025, §1.7, page 6",
+        "url": "https://frsc.gov.ng/wp-content/uploads/2025/04/MI-III-COMPENDIUM-2025.pdf#page=6"
+      }
+    ]
+  },
+  {
+    "topic": "Traffic Rules",
+    "q": "A traffic light turns green, but queued vehicles leave no space beyond the junction. What should you do?",
+    "options": [
+      "Wait behind the stop line until you can clear the junction",
+      "Enter and wait in the middle of the junction",
+      "Use your horn so the queue will make space",
+      "Follow closely behind the vehicle ahead into the junction"
+    ],
+    "answer": 0,
+    "explain": "Green permits movement only when the road is clear. Waiting until you can clear the junction prevents you blocking traffic crossing your path. FRSC traffic-signal guidance makes the clear-road condition explicit.",
+    "sources": [
+      {
+        "label": "FRSC MI-III Compendium 2025, §1.5, page 5",
+        "url": "https://frsc.gov.ng/wp-content/uploads/2025/04/MI-III-COMPENDIUM-2025.pdf#page=5"
+      }
+    ]
+  },
+  {
+    "topic": "Traffic Rules",
+    "q": "A green filter arrow points right while the main traffic signal remains red. If the way is clear, you may:",
+    "options": [
+      "Proceed in any direction because an arrow is green",
+      "Go straight ahead but not turn right",
+      "Proceed only in the direction of the green arrow",
+      "Make a U-turn regardless of the arrow direction"
+    ],
+    "answer": 2,
+    "explain": "A green filter arrow authorises only the movement it points to, provided the way is clear. It does not release every movement controlled by the main red signal.",
+    "sources": [
+      {
+        "label": "FRSC MI-III Compendium 2025, §1.5, page 5",
+        "url": "https://frsc.gov.ng/wp-content/uploads/2025/04/MI-III-COMPENDIUM-2025.pdf#page=5"
+      }
+    ]
+  },
+  {
+    "topic": "Traffic Rules",
+    "q": "Before moving into another lane, how should you check the area that your mirrors do not show?",
+    "options": [
+      "Rely entirely on the interior rear-view mirror",
+      "Briefly check over your shoulder towards the intended lane",
+      "Sound the horn and move across without looking",
+      "Wait for the blind-spot area to appear in the windscreen"
+    ],
+    "answer": 1,
+    "explain": "Mirrors can leave a blind spot. Check mirrors, signal and make a brief shoulder check towards the intended lane before moving when safe. Keep monitoring the road ahead.",
+    "sources": [
+      {
+        "label": "Ontario Ministry of Transportation, Changing positions: blind-spot checks",
+        "url": "https://www.ontario.ca/document/official-mto-drivers-handbook/changing-positions"
+      }
+    ]
+  },
+  {
+    "topic": "Traffic Rules",
+    "q": "An authorised traffic officer signals you to stop at a junction. What should you do?",
+    "options": [
+      "Proceed if you believe no vehicles are crossing",
+      "Follow the car ahead instead of the officer",
+      "Sound your horn and ask other traffic to wait",
+      "Stop safely and follow the officer’s directions"
+    ],
+    "answer": 3,
+    "explain": "Obey the authorised officer controlling the junction. Do not substitute your own judgement or the actions of other drivers for the officer’s direction. FRSC Fleet Management lists obedience to traffic officers as a safe-driving principle.",
+    "sources": [
+      {
+        "label": "FRSC Fleet Management, safe driving principles, page 25",
+        "url": "https://old.frsc.gov.ng/fleetmag.pdf#page=25"
+      }
+    ]
+  },
+  {
+    "topic": "Vehicle Knowledge",
+    "q": "When should you measure tyre pressure to compare it with the vehicle manufacturer’s recommended setting?",
+    "options": [
+      "When the tyres are cold, before significant driving",
+      "Immediately after a long high-speed journey",
+      "Only after a tyre looks visibly flat",
+      "While the tyres are hot from repeated braking"
+    ],
+    "answer": 0,
+    "explain": "Check pressures when the tyres are cold. Use the vehicle placard or owner’s manual for the recommended value, rather than the tyre sidewall maximum. Heating during driving affects the reading.",
+    "sources": [
+      {
+        "label": "FRSC Statistical Digest, Q1 2018, tyre safety, PDF page 3",
+        "url": "https://frsc.gov.ng/wp-content/uploads/2018/08/FRSC-STATISTICAL-DIGEST-FIRST-QUARTER-2018.pdf#page=3"
+      },
+      {
+        "label": "NHTSA TireWise, tyre pressure and tread maintenance",
+        "url": "https://www.nhtsa.gov/vehicle-safety/tires"
+      }
+    ]
+  },
+  {
+    "topic": "Vehicle Knowledge",
+    "q": "The tyre tread has worn level with its built-in treadwear indicator bars. What should you do?",
+    "options": [
+      "Add more air so the tread will grip better",
+      "Keep using it until the fabric becomes visible",
+      "Replace the tyre",
+      "Cut deeper grooves into the worn tread"
+    ],
+    "answer": 2,
+    "explain": "Treadwear indicators reveal when the usable tread is worn down. A tyre worn level with those bars needs replacement; inflating it further does not restore its grip.",
+    "sources": [
+      {
+        "label": "NHTSA TireWise, tyre pressure and tread maintenance",
+        "url": "https://www.nhtsa.gov/vehicle-safety/tires"
+      }
+    ]
+  },
+  {
+    "topic": "Vehicle Knowledge",
+    "q": "During an emergency stop in a car with a functioning anti-lock braking system (ABS), how should you use the brake pedal?",
+    "options": [
+      "Pump the pedal repeatedly as fast as possible",
+      "Apply firm, continuous pressure to the pedal",
+      "Release the pedal whenever it pulses",
+      "Use only the parking brake to stop the car"
+    ],
+    "answer": 1,
+    "explain": "For working ABS, keep firm, continuous brake pressure rather than pumping. ABS regulates wheel braking to reduce locking. Pedal pulsing can be normal during ABS operation. Follow the vehicle handbook; this question is about functioning ABS, not brake failure.",
+    "sources": [
+      {
+        "label": "NHTSA driving guidance, Safety Technologies: ABS",
+        "url": "https://www.nhtsa.gov/winter-driving-tips"
+      }
+    ]
+  },
+  {
+    "topic": "Vehicle Knowledge",
+    "q": "Which system should you use to clear mist from the inside of the windscreen?",
+    "options": [
+      "The hazard warning lamps",
+      "The horn and high-beam headlamps",
+      "Only the windscreen wipers outside the glass",
+      "The demister, using heating or air conditioning as needed"
+    ],
+    "answer": 3,
+    "explain": "Use the demisting airflow with heating or air conditioning to clear the inside of the glass. Wipers clear the outside surface. FRSC rain-driving guidance recommends the heater or air conditioner to remove mist; stop safely if you cannot maintain a clear view.",
+    "sources": [
+      {
+        "label": "FRSC RC Compendium 2025, §1.2, page 3",
+        "url": "https://frsc.gov.ng/wp-content/uploads/2025/04/RC-COMPENDIUM-2025.pdf#page=3"
+      }
+    ]
+  },
+  {
+    "topic": "Vehicle Knowledge",
+    "q": "For an engine fitted with a dipstick, which item is used to check the engine oil level?",
+    "options": [
+      "The engine oil dipstick",
+      "The radiator pressure cap",
+      "The battery charge indicator",
+      "The tyre pressure gauge"
+    ],
+    "answer": 0,
+    "explain": "Read the engine oil dipstick as directed by the vehicle handbook. FRSC’s daily-check guidance uses it to check oil in the sump. Oil level is a maintenance check; it is different from diagnosing a red oil-pressure warning while driving.",
+    "sources": [
+      {
+        "label": "FRSC MI-III Compendium 2025, §2.1, page 8",
+        "url": "https://frsc.gov.ng/wp-content/uploads/2025/04/MI-III-COMPENDIUM-2025.pdf#page=8"
+      }
+    ]
+  },
+  {
+    "topic": "Highway Code",
+    "q": "Which description best defines defensive driving?",
+    "options": [
+      "Insisting on your priority whenever you have right of way",
+      "Driving fast enough to stay ahead of every other vehicle",
+      "Anticipating hazards and allowing for other road users’ mistakes",
+      "Using your horn continuously to make others give way"
+    ],
+    "answer": 2,
+    "explain": "Defensive driving anticipates hazards and adapts to road conditions and other people’s errors. It includes yielding when necessary to prevent a collision, even if you believe you have priority.",
+    "sources": [
+      {
+        "label": "FRSC RC Compendium 2025, §1.4, page 7",
+        "url": "https://frsc.gov.ng/wp-content/uploads/2025/04/RC-COMPENDIUM-2025.pdf#page=7"
+      }
+    ]
+  },
+  {
+    "topic": "Highway Code",
+    "q": "Which toll-free number does FRSC publish for reporting road crashes and requesting emergency assistance?",
+    "options": [
+      "121",
+      "122",
+      "123",
+      "124"
+    ],
+    "answer": 1,
+    "explain": "FRSC publishes 122 as its toll-free emergency number. When reporting, give the location, the nature of the crash and any known injuries, and follow the dispatcher’s instructions.",
+    "sources": [
+      {
+        "label": "FRSC National Headquarters, emergency contact",
+        "url": "https://frsc.gov.ng/commands/national-headquarters/"
+      }
+    ]
+  },
+  {
+    "topic": "Highway Code",
+    "q": "Where does FRSC require the red L sign on a driving-school car used for training?",
+    "options": [
+      "Only inside the glove compartment",
+      "Only on the rear number plate",
+      "Only on the roof where the instructor can see it",
+      "At the front and rear, and on both sides of the vehicle"
+    ],
+    "answer": 3,
+    "explain": "FRSC’s 2025 driving-school requirements specify an L sign at the front and rear and on both sides. This question concerns a driving-school training car; the sign must be red and clearly readable.",
+    "sources": [
+      {
+        "label": "FRSC PMI Compendium 2025, §1.5.8, page 23",
+        "url": "https://frsc.gov.ng/wp-content/uploads/2025/04/PMI-COMPENDIUM-2025.pdf#page=23"
+      }
+    ]
+  },
+  {
+    "topic": "Highway Code",
+    "q": "Which reversing manoeuvre should you avoid according to FRSC safe-driving guidance?",
+    "options": [
+      "Reversing from a side road into a major road",
+      "Reversing slowly into a clear parking space",
+      "Using an observer when your rear view is restricted",
+      "Checking all around before starting to reverse"
+    ],
+    "answer": 0,
+    "explain": "FRSC advises against reversing into a major road. Plan the manoeuvre so you can emerge forwards when safe, and do not reverse farther than necessary.",
+    "sources": [
+      {
+        "label": "FRSC Fleet Management, safe driving principles, page 25",
+        "url": "https://old.frsc.gov.ng/fleetmag.pdf#page=25"
+      }
+    ]
+  },
+  {
+    "topic": "Highway Code",
+    "q": "At night, an oncoming vehicle’s headlamps dazzle you. What is the safest response?",
+    "options": [
+      "Look directly at the lamps to judge their brightness",
+      "Switch to high beam and accelerate past the vehicle",
+      "Slow down and look towards the right-hand road edge",
+      "Close your eyes briefly and keep your current speed"
+    ],
+    "answer": 2,
+    "explain": "Slow down and avoid looking into the oncoming lamps. FRSC night-driving guidance recommends watching the right-hand road edge. Keep proper awareness of the road; stop safely if you cannot see well enough to continue.",
+    "sources": [
+      {
+        "label": "FRSC RC Compendium 2025, §1.2, page 2",
+        "url": "https://frsc.gov.ng/wp-content/uploads/2025/04/RC-COMPENDIUM-2025.pdf#page=2"
+      }
+    ]
+  },
+
+  // ===== SOURCE-CHECKED EXPANSION: QUESTIONS 101–120 =====
+  {
+    "topic": "Road Signs",
+    "q": "What hazard does the curved black symbol in this warning triangle indicate?",
+    "sign": "<img src=\"illustrations/bend-right.png\" alt=\"Red-bordered yellow triangle containing a black road stroke curving to the right\" width=\"512\" height=\"512\">",
+    "options": [
+      "A compulsory right turn at the next junction",
+      "A dangerous bend to the right ahead",
+      "A right turn is prohibited",
+      "A one-way road begins ahead"
+    ],
+    "answer": 1,
+    "explain": "The warning triangle shows a dangerous bend to the right. Reduce speed before the bend and stay in your lane; it warns of a curve rather than ordering a turn.",
+    "sources": [
+      {
+        "label": "FRSC MI-III Compendium 2025, §1.4 sign chart, page 4",
+        "url": "https://frsc.gov.ng/wp-content/uploads/2025/04/MI-III-COMPENDIUM-2025.pdf#page=4"
+      }
+    ]
+  },
+  {
+    "topic": "Road Signs",
+    "q": "What change to the road ahead is shown by these two inward-bending lines?",
+    "sign": "<img src=\"illustrations/carriageway-narrows.png\" alt=\"Red-bordered yellow triangle containing two black road-edge lines narrowing towards the top\" width=\"512\" height=\"512\">",
+    "options": [
+      "The road becomes a dual carriageway",
+      "A narrow bridge is the only hazard ahead",
+      "The road widens on both sides",
+      "The carriageway narrows ahead"
+    ],
+    "answer": 3,
+    "explain": "The two converging road edges warn that the carriageway narrows. Expect less road space and adjust your speed and position. This sign does not specifically identify a bridge.",
+    "sources": [
+      {
+        "label": "FRSC MI-III Compendium 2025, §1.4 sign chart, page 4",
+        "url": "https://frsc.gov.ng/wp-content/uploads/2025/04/MI-III-COMPENDIUM-2025.pdf#page=4"
+      }
+    ]
+  },
+  {
+    "topic": "Road Signs",
+    "q": "Which junction layout is identified by the black T-shaped symbol shown?",
+    "sign": "<img src=\"illustrations/t-junction.png\" alt=\"Red-bordered yellow triangle containing a black capital T road symbol\" width=\"512\" height=\"512\">",
+    "options": [
+      "A T-junction ahead",
+      "A crossroads with four approaches",
+      "A roundabout ahead",
+      "A staggered junction with two separate side roads"
+    ],
+    "answer": 0,
+    "explain": "The T shape warns of a junction where two roads meet in the shape of a T. Approach cautiously, check traffic and obey the actual priority signs or signals; the warning sign alone does not grant priority.",
+    "sources": [
+      {
+        "label": "FRSC MI-III Compendium 2025, §1.4 sign chart, page 4",
+        "url": "https://frsc.gov.ng/wp-content/uploads/2025/04/MI-III-COMPENDIUM-2025.pdf#page=4"
+      }
+    ]
+  },
+  {
+    "topic": "Road Signs",
+    "q": "What instruction does this white U-shaped arrow on a blue circle give?",
+    "sign": "<img src=\"illustrations/compulsory-u-turn.png\" alt=\"Blue circular sign containing a white arrow curving through a half-circle and pointing down\" width=\"512\" height=\"512\">",
+    "options": [
+      "U-turns are prohibited at this location",
+      "A hairpin bend is ahead",
+      "Make a U-turn as directed when safe",
+      "Continue straight through the junction"
+    ],
+    "answer": 2,
+    "explain": "FRSC classifies this blue-circle U-turn sign as mandatory: follow the indicated U-turn movement when safe. Its blue background distinguishes it from the yellow, red-bordered No U-turn sign.",
+    "sources": [
+      {
+        "label": "FRSC MI-III Compendium 2025, §1.4 sign chart, page 4",
+        "url": "https://frsc.gov.ng/wp-content/uploads/2025/04/MI-III-COMPENDIUM-2025.pdf#page=4"
+      }
+    ]
+  },
+  {
+    "topic": "Road Signs",
+    "q": "What facility does the green sign shown identify?",
+    "sign": "<img src=\"illustrations/rest-area.png\" alt=\"Green rectangular sign with white uppercase words REST AREA\" width=\"512\" height=\"512\">",
+    "options": [
+      "A hospital emergency entrance",
+      "A rest area",
+      "A place where vehicles must stop for inspection",
+      "A compulsory parking restriction"
+    ],
+    "answer": 1,
+    "explain": "The green REST AREA panel is an informative sign identifying a designated rest facility. It helps you find somewhere to take a break; it does not require every vehicle to stop.",
+    "sources": [
+      {
+        "label": "FRSC MI-III Compendium 2025, §1.4 sign chart, page 4",
+        "url": "https://frsc.gov.ng/wp-content/uploads/2025/04/MI-III-COMPENDIUM-2025.pdf#page=4"
+      }
+    ]
+  },
+  {
+    "topic": "Traffic Rules",
+    "q": "A traffic signal displays red and amber together. When may you start moving?",
+    "options": [
+      "Immediately, because amber cancels the red light",
+      "After sounding your horn to warn crossing traffic",
+      "As soon as the vehicle beside you moves",
+      "When green appears and the way is clear"
+    ],
+    "answer": 3,
+    "explain": "FRSC states that red and amber together still mean stop. Remain behind the stop line until green shows, then proceed only if it is safe and clear.",
+    "sources": [
+      {
+        "label": "FRSC MI-III Compendium 2025, §1.5 traffic signals, page 5",
+        "url": "https://frsc.gov.ng/wp-content/uploads/2025/04/MI-III-COMPENDIUM-2025.pdf#page=5"
+      }
+    ]
+  },
+  {
+    "topic": "Traffic Rules",
+    "q": "Your light is green and you are turning into a road where pedestrians are already crossing. What should you do?",
+    "options": [
+      "Give way to the crossing pedestrians before completing the turn",
+      "Complete the turn because a green light gives absolute priority",
+      "Sound your horn and continue at the same speed",
+      "Drive around the pedestrians without reducing speed"
+    ],
+    "answer": 0,
+    "explain": "A green light permits movement only when safe. FRSC specifically instructs drivers turning left or right to take care and give way to pedestrians crossing.",
+    "sources": [
+      {
+        "label": "FRSC MI-III Compendium 2025, §1.5 traffic signals, page 5",
+        "url": "https://frsc.gov.ng/wp-content/uploads/2025/04/MI-III-COMPENDIUM-2025.pdf#page=5"
+      }
+    ]
+  },
+  {
+    "topic": "Traffic Rules",
+    "q": "You are about to overtake near the crest of a hill, but cannot see enough of the road beyond. What is the safest decision?",
+    "options": [
+      "Overtake quickly before reaching the top",
+      "Rely on the horn to warn any unseen traffic",
+      "Stay behind until you have a clear, safe view ahead",
+      "Move into the opposing lane to improve your view"
+    ],
+    "answer": 2,
+    "explain": "Do not begin overtaking when the hill hides approaching traffic or the space needed to complete the manoeuvre. Wait until visibility, road markings and traffic conditions make passing safe.",
+    "sources": [
+      {
+        "label": "UK Department for Transport Highway Code, rule 166: visibility before overtaking (general safety)",
+        "url": "https://www.gov.uk/guidance/the-highway-code/using-the-road-159-to-203#rule166"
+      }
+    ]
+  },
+  {
+    "topic": "Traffic Rules",
+    "q": "An ambulance using its siren approaches from behind. How should you help it pass?",
+    "options": [
+      "Follow closely behind it through the traffic",
+      "Make room safely, pulling aside if needed without creating danger",
+      "Drive through a red signal to get out of its way",
+      "Brake sharply and stop wherever you are"
+    ],
+    "answer": 1,
+    "explain": "Stay calm, check the ambulance's likely route and make room safely. Pull aside or stop where safe if needed; avoid sudden braking, endangering pedestrians or ignoring signals on your own initiative.",
+    "sources": [
+      {
+        "label": "UK Department for Transport Highway Code, rule 219: emergency vehicles (general safety)",
+        "url": "https://www.gov.uk/guidance/the-highway-code/road-users-requiring-extra-care-204-to-225#rule219"
+      }
+    ]
+  },
+  {
+    "topic": "Traffic Rules",
+    "q": "You have passed your intended expressway exit. What should you do?",
+    "options": [
+      "Reverse carefully along the shoulder to the slip road",
+      "Make a U-turn through a gap in the central divider",
+      "Stop in the traffic lane and wait for a safe gap",
+      "Continue to the next exit and find a safe route back"
+    ],
+    "answer": 3,
+    "explain": "A missed exit is corrected by continuing to the next exit. Reversing, crossing the divider or driving against expressway traffic creates a serious collision risk.",
+    "sources": [
+      {
+        "label": "UK Department for Transport Highway Code, rule 263: missed exits (general safety)",
+        "url": "https://www.gov.uk/guidance/the-highway-code/motorways-253-to-273#rule263"
+      }
+    ]
+  },
+  {
+    "topic": "Vehicle Knowledge",
+    "q": "In a manual-transmission car, which pedal do you press fully before changing gear?",
+    "options": [
+      "The clutch pedal",
+      "The accelerator pedal",
+      "The brake pedal only",
+      "The parking-brake pedal"
+    ],
+    "answer": 0,
+    "explain": "Press the clutch pedal to disengage drive while changing gear, then release it smoothly as appropriate. FRSC's vehicle checks include changing gears while pressing the clutch.",
+    "sources": [
+      {
+        "label": "FRSC MI-III Compendium 2025, §2.1 safety checks, page 8",
+        "url": "https://frsc.gov.ng/wp-content/uploads/2025/04/MI-III-COMPENDIUM-2025.pdf#page=8"
+      }
+    ]
+  },
+  {
+    "topic": "Vehicle Knowledge",
+    "q": "What is the main purpose of brake fluid in a hydraulic braking system?",
+    "options": [
+      "To cool the engine while the vehicle slows",
+      "To lubricate the tyre tread",
+      "To transmit pressure to the braking mechanisms at the wheels",
+      "To supply fuel to the engine under braking"
+    ],
+    "answer": 2,
+    "explain": "Brake fluid transfers hydraulic pressure through the brake lines to the wheel braking mechanisms. Use the specified fluid and follow the vehicle handbook for checks and servicing.",
+    "sources": [
+      {
+        "label": "Toyota Canada, Quality Service: brake system and hydraulic fluid",
+        "url": "https://www.toyota.ca/en/owners/service/"
+      }
+    ]
+  },
+  {
+    "topic": "Vehicle Knowledge",
+    "q": "When parking and leaving a vehicle, what is the parking brake mainly used for?",
+    "options": [
+      "Keeping the engine running at a steady speed",
+      "Helping hold the stationary vehicle against rolling",
+      "Making the steering wheel easier to turn",
+      "Replacing the foot brake during normal driving"
+    ],
+    "answer": 1,
+    "explain": "Apply the parking brake to help secure the stationary vehicle, together with the appropriate gear or Park position according to the vehicle handbook. It is not a substitute for normal braking while driving.",
+    "sources": [
+      {
+        "label": "UK Department for Transport Highway Code, rule 239: securing a parked vehicle (general safety)",
+        "url": "https://www.gov.uk/guidance/the-highway-code/waiting-and-parking-238-to-252#rule239"
+      }
+    ]
+  },
+  {
+    "topic": "Vehicle Knowledge",
+    "q": "The windscreen is clean, but worn wiper blades leave broad streaks that obscure your view. What should you do before driving in rain?",
+    "options": [
+      "Add more engine oil to improve the wiper action",
+      "Use high-beam headlights to see through the streaks",
+      "Drive faster so airflow clears the screen",
+      "Replace the worn blades and check that the wipers clear the screen"
+    ],
+    "answer": 3,
+    "explain": "Wipers must clear the screen effectively for safe visibility. FRSC requires checking both their operation and blade effectiveness; worn blades that leave obscuring streaks need replacement.",
+    "sources": [
+      {
+        "label": "FRSC MI-III Compendium 2025, §2.1 safety checks, page 8",
+        "url": "https://frsc.gov.ng/wp-content/uploads/2025/04/MI-III-COMPENDIUM-2025.pdf#page=8"
+      }
+    ]
+  },
+  {
+    "topic": "Vehicle Knowledge",
+    "q": "In standing water, the steering suddenly feels unresponsive as the tyres lose grip. What should you do?",
+    "options": [
+      "Ease off the accelerator and slow gradually, avoiding abrupt inputs",
+      "Brake sharply and turn the wheel hard",
+      "Accelerate to force the tyres back onto the road",
+      "Apply the parking brake immediately"
+    ],
+    "answer": 0,
+    "explain": "This can be aquaplaning: water prevents the tyres gripping the road. Ease off the accelerator and let speed reduce gradually; sudden braking or steering can worsen loss of control.",
+    "sources": [
+      {
+        "label": "UK Department for Transport Highway Code, rule 227: loss of tyre grip in water (general safety)",
+        "url": "https://www.gov.uk/guidance/the-highway-code/driving-in-adverse-weather-conditions-226-to-237#rule227"
+      }
+    ]
+  },
+  {
+    "topic": "Highway Code",
+    "q": "You begin repeatedly yawning and struggling to keep your eyes open while driving. What is the safest response?",
+    "options": [
+      "Turn up the music and continue at the same speed",
+      "Open the window and finish the journey without stopping",
+      "Stop at a safe place and rest before continuing",
+      "Drive faster to spend less time on the road"
+    ],
+    "answer": 2,
+    "explain": "Drowsiness can lead to brief unintended sleep and loss of control. Stop somewhere safe and rest; coffee, an open window or loud music do not replace adequate sleep. Continue only when fit to drive.",
+    "sources": [
+      {
+        "label": "NHTSA, Drowsy Driving: sleep and short-term countermeasures",
+        "url": "https://www.nhtsa.gov/risky-driving/drowsy-driving"
+      }
+    ]
+  },
+  {
+    "topic": "Highway Code",
+    "q": "You start taking a medicine whose label warns that it may cause drowsiness. What should you do before driving?",
+    "options": [
+      "Assume it is safe because it was bought legally",
+      "Check the warning and seek advice; avoid driving if it may impair you",
+      "Take a double dose so the effects wear off sooner",
+      "Drive only on quiet roads until you feel accustomed to it"
+    ],
+    "answer": 1,
+    "explain": "Prescription and over-the-counter medicines can impair judgement, coordination and reaction time. Read the label and ask a pharmacist or clinician about driving; do not drive while impaired.",
+    "sources": [
+      {
+        "label": "NHTSA, Prescription and over-the-counter medicines: driving impairment",
+        "url": "https://www.nhtsa.gov/drug-impaired-driving/dangers-driving-after-taking-prescription-drugs-or-over-counter-medicines"
+      }
+    ]
+  },
+  {
+    "topic": "Highway Code",
+    "q": "Before riding a motorcycle on a public road, which item of head protection should you use?",
+    "options": [
+      "An ordinary cap worn under the chin",
+      "A helmet carried on the handlebars for emergencies",
+      "Any helmet left unfastened for easy removal",
+      "A suitable crash helmet fitted and securely fastened"
+    ],
+    "answer": 3,
+    "explain": "Wear a suitable crash helmet correctly fitted and fastened to protect your head. FRSC lists riding without a crash helmet as an offence; an unfastened helmet may come off in a collision.",
+    "sources": [
+      {
+        "label": "FRSC, Offences and Penalties: crash helmets and covering unstable materials",
+        "url": "https://frsc.gov.ng/offences-and-penalties/"
+      }
+    ]
+  },
+  {
+    "topic": "Highway Code",
+    "q": "A vehicle is carrying loose sand that could blow or spill onto the road. What should be done before the journey?",
+    "options": [
+      "Cover and contain the loose material so it cannot escape",
+      "Leave it uncovered and drive only at night",
+      "Sound the horn regularly to warn following drivers",
+      "Rely on following vehicles to stay far enough back"
+    ],
+    "answer": 0,
+    "explain": "Loose material can obscure visibility, damage vehicles and create road hazards. Cover and contain it before travelling; FRSC lists failure to cover unstable materials as an offence.",
+    "sources": [
+      {
+        "label": "FRSC, Offences and Penalties: crash helmets and covering unstable materials",
+        "url": "https://frsc.gov.ng/offences-and-penalties/"
+      }
+    ]
+  },
+  {
+    "topic": "Highway Code",
+    "q": "Animals suddenly enter the road ahead. Which response best avoids adding another collision risk?",
+    "options": [
+      "Swerve immediately into the oncoming lane",
+      "Accelerate past the animals before they move further",
+      "Slow or stop in a controlled way while considering traffic around you",
+      "Change lanes without checking because animals have priority"
+    ],
+    "answer": 2,
+    "explain": "FRSC advises judging stopping and other evasive actions carefully around animals. Consider traffic behind and beside you, and avoid swerving into oncoming traffic or another lane without checking.",
+    "sources": [
+      {
+        "label": "FRSC RC Compendium 2025, §1.2 animals in traffic, page 4",
+        "url": "https://frsc.gov.ng/wp-content/uploads/2025/04/RC-COMPENDIUM-2025.pdf#page=4"
+      }
+    ]
   }
 ];

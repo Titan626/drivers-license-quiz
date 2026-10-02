@@ -3,11 +3,15 @@
 // network with cache fallback for the Inter font CDN.
 // Bump CACHE_VERSION on every release to invalidate old caches.
 
-const CACHE_VERSION = 'vio-quiz-v11';
+const CACHE_VERSION = 'vio-quiz-v14';
 const APP_SHELL = [
   './',
   './index.html',
+  './about-the-test.html',
   './questions.js',
+  './vio-driving-test-questions.html',
+  './resource.css',
+  './resource.js',
   './manifest.json',
   './icon.svg',
   './icon-192.png',
@@ -35,7 +39,10 @@ const APP_SHELL = [
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(CACHE_VERSION).then((cache) => cache.addAll(APP_SHELL))
+    // Bypass the browser HTTP cache so an upgrade cannot precache old files.
+    caches.open(CACHE_VERSION).then((cache) =>
+      cache.addAll(APP_SHELL.map((url) => new Request(url, { cache: 'reload' })))
+    )
   );
   self.skipWaiting();
 });
@@ -44,9 +51,8 @@ self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((keys) =>
       Promise.all(keys.filter((k) => k !== CACHE_VERSION).map((k) => caches.delete(k)))
-    )
+    ).then(() => self.clients.claim())
   );
-  self.clients.claim();
 });
 
 self.addEventListener('fetch', (event) => {

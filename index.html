@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>VIO Mock Test — Free Nigerian Driver's License Quiz (FRSC Highway Code)</title>
-<meta name="description" content="Free Nigerian VIO mock test based on the FRSC Highway Code. 80 practice questions on road signs, traffic rules, and vehicle knowledge. Timed, with instant scoring. No signup. Works offline." />
+<title>Nigerian VIO Mock Test — Free Driving Practice Quiz</title>
+<meta name="description" content="Practise for Nigerian driving study with an independent VIO mock test. 80 questions and explanations, timed 20/40-question quizzes and offline flashcards. No signup." />
 <link rel="canonical" href="https://viomocktest.netlify.app/" />
 <meta name="theme-color" content="#008751" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -14,8 +14,8 @@
 <!-- Open Graph (Facebook, WhatsApp, LinkedIn previews) -->
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="VIO Mock Quiz" />
-<meta property="og:title" content="VIO Mock Test — Free Nigerian Driver's License Quiz" />
-<meta property="og:description" content="Free practice test for the Nigerian VIO driver's license exam. 80 questions from the FRSC Highway Code, 70% pass mark, works offline." />
+<meta property="og:title" content="Nigerian VIO Mock Test — Independent Driving Practice" />
+<meta property="og:description" content="Independent Nigerian driving practice: 80 questions, explanations and offline study. Choose a 20- or 40-question mock test with a 70% practice target." />
 <meta property="og:url" content="https://viomocktest.netlify.app/" />
 <meta property="og:image" content="https://viomocktest.netlify.app/icon-512.png" />
 <meta property="og:image:width" content="512" />
@@ -24,8 +24,8 @@
 
 <!-- Twitter / X card -->
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="VIO Mock Test — Free Nigerian Driver's License Quiz" />
-<meta name="twitter:description" content="Free practice test for the Nigerian VIO driver's license exam. 80 questions from the FRSC Highway Code." />
+<meta name="twitter:title" content="Nigerian VIO Mock Test — Independent Driving Practice" />
+<meta name="twitter:description" content="Independent Nigerian driving practice with 80 questions and explanations on FRSC Highway Code topics." />
 <meta name="twitter:image" content="https://viomocktest.netlify.app/icon-512.png" />
 
 <link rel="manifest" href="manifest.json" />
@@ -35,7 +35,7 @@
 <link rel="preconnect" href="https://rsms.me/" />
 <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
 
-<!-- Structured data: WebApplication + Quiz + FAQ for rich results -->
+<!-- Structured data describing the visible practice app. -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -43,7 +43,7 @@
   "name": "VIO Mock Quiz",
   "alternateName": "Nigerian Driver's License Mock Test",
   "url": "https://viomocktest.netlify.app/",
-  "description": "Free Nigerian VIO drivers license mock test based on the FRSC Highway Code.",
+  "description": "Independent Nigerian VIO mock test for studying the FRSC Highway Code. Practice settings are not official test requirements.",
   "applicationCategory": "EducationalApplication",
   "operatingSystem": "Any",
   "inLanguage": "en-NG",
@@ -70,54 +70,7 @@
   }
 }
 </script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is the Nigerian VIO test?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The VIO (Vehicle Inspection Officer) test is the theory and practical examination required to obtain a Nigerian driver's license. The theory portion is based on the FRSC Highway Code and covers road signs, traffic rules, and vehicle knowledge."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How many questions are in the VIO theory test?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The official VIO theory test typically has 40 questions. This mock quiz offers both a 20-question quick test and a 40-question full test, both at the same 70% pass mark."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is the pass mark for the Nigerian driver's license test?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The Nigerian VIO theory test pass mark is 70%."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is this VIO mock quiz free?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. It is 100% free, open source, requires no signup, and works offline after the first visit."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Does this cover Nigerian road signs?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. The question bank includes 20 road-sign questions using the official yellow-and-red Nigerian road sign designs issued by the Federal Road Safety Corps (FRSC)."
-      }
-    }
-  ]
-}
-</script>
+
 <style>
   :root {
     /* Linear-style palette, Nigerian green accent */
@@ -230,7 +183,7 @@
     flex-shrink: 0;
   }
   .logo-dot img { width: 100%; height: 100%; display: block; }
-  header h1 {
+  header .app-title {
     margin: 0;
     font-size: 15px;
     font-weight: 600;
@@ -874,7 +827,7 @@
   @media (max-width: 480px) {
     body { padding: 12px 10px; font-size: 14px; }
     header { padding: 12px 14px; border-radius: 10px 10px 0 0; }
-    header h1 { font-size: 13px; }
+    header .app-title { font-size: 13px; }
     .subtitle { font-size: 11px; }
     .card { padding: 18px 16px; border-radius: 0 0 10px 10px; }
     .q-text { font-size: 15px; line-height: 1.4; margin-bottom: 16px; }
@@ -917,15 +870,22 @@
 
     .break-mobile { display: inline; }
   }
+  .card a, .page-links a { color: var(--green); text-underline-offset: 3px; }
+  .page-links { margin: 18px 0 0; text-align: center; }
+  .page-links a { display: inline-block; padding: 8px 12px; font-size: 13px; }
+  #practice { scroll-margin-top: 16px; }
 </style>
 </head>
 <body>
 <div class="wrap">
+  <main>
+
+  <section id="practice" aria-label="Interactive practice quiz">
   <header>
     <div class="header-row">
       <div class="header-left">
         <span class="logo-dot"><img src="icon.svg" alt="VIO"></span>
-        <h1 id="headerTitle">Mock Quiz</h1>
+        <h1 class="app-title" id="headerTitle">Mock Quiz</h1>
       </div>
       <div class="header-meta">
         <div class="timer" id="timer" hidden><span class="timer-icon"></span><span id="timerText">00:00</span></div>
@@ -940,9 +900,13 @@
     <p class="subtitle" id="headerSubtitle">Nigerian Driver's License Practice Test</p>
     <div class="progress" id="progressWrap" hidden><div class="progress-bar" id="progressBar"></div></div>
   </header>
-  <div class="card" id="card"></div>
+  <div class="card" id="card"><p>Enable JavaScript to take the interactive quiz, or <a href="vio-driving-test-questions.html">read the questions and explanations</a>.</p></div>
+  </section>
+
+  </main>
+  <nav class="page-links" aria-label="More about the quiz"><a href="about-the-test.html">About the test</a></nav>
   <footer>
-    Practice test only.<br class="break-mobile">
+    Independent practice app; not affiliated with or endorsed by FRSC or VIO.<br class="break-mobile">
     Always refer to the <a href="https://frsc.gov.ng/" target="_blank" rel="noopener">FRSC Highway Code</a> for official information.
     <div class="credit">Built with ❤️ by <a href="https://github.com/Titan626" target="_blank" rel="noopener">Iyanu</a></div>
   </footer>
@@ -1252,6 +1216,7 @@
     stopTimer();
     document.getElementById('timer').hidden = true;
     setHeader('Mock Quiz', "Nigerian Driver's License Practice Test", false);
+    window.scrollTo(0, 0);
     renderProgress(0);
 
     const saved = loadState();
@@ -1281,20 +1246,20 @@
 
     card.innerHTML = `
       <div class="start-hero">
-        <div class="start-eyebrow">Federal Road Safety Corps</div>
-        <h2 class="start-title">Pass your VIO test with confidence.</h2>
-        <p class="start-desc">A timed practice test based on the FRSC Highway Code. Choose how many questions you want to attempt.</p>
+        <div class="start-eyebrow">Independent practice · FRSC Highway Code topics</div>
+        <h2 class="start-title">Practise for your driving test.</h2>
+        <p class="start-desc">Choose a timed quiz or study the answers at your own pace. These questions are for practice, not an official examination paper.</p>
       </div>
       <div class="mode-grid with-study">
         <button class="mode-card" data-mode="20">
           <span class="mode-label">Quick</span>
           <span class="mode-name">20 Questions</span>
-          <span class="mode-meta">20 minutes · pass at ${PASS_THRESHOLD}%</span>
+          <span class="mode-meta">20 minutes · practice target ${PASS_THRESHOLD}%</span>
         </button>
         <button class="mode-card" data-mode="40">
           <span class="mode-label">Full</span>
           <span class="mode-name">40 Questions</span>
-          <span class="mode-meta">40 minutes · pass at ${PASS_THRESHOLD}%</span>
+          <span class="mode-meta">40 minutes · practice target ${PASS_THRESHOLD}%</span>
         </button>
         <button class="mode-card study" data-mode="study">
           <span class="mode-label">Study</span>
@@ -1330,6 +1295,7 @@
     saveState();
     screen = 'quiz';
     renderQuiz();
+    document.getElementById('practice').scrollIntoView({ block: 'start' });
     startTimer();
     renderTimer();
   }
@@ -1341,6 +1307,7 @@
     session = rebuildSessionFromState(saved);
     screen = 'quiz';
     renderQuiz();
+    document.getElementById('practice').scrollIntoView({ block: 'start' });
     startTimer();
     renderTimer();
   }
@@ -1444,8 +1411,8 @@
     const { score, byTopic, total, percentage } = computeScore();
     const passed = percentage >= PASS_THRESHOLD;
     let message;
-    if (passed && percentage >= 90) message = "Outstanding — you're more than ready for the real test.";
-    else if (passed) message = "Solid pass. Review the questions you missed and you'll do well.";
+    if (passed && percentage >= 90) message = "Outstanding practice score. Keep studying and follow your testing office’s guidance.";
+    else if (passed) message = "Practice target reached. Review the questions you missed before your assessment.";
     else if (percentage >= 50) message = "Close — keep studying the Highway Code and try again.";
     else message = "More study needed. Focus on road signs and traffic rules, then retake.";
 
@@ -1460,9 +1427,9 @@
 
     document.getElementById('card').innerHTML = `
       <div class="result">
-        <div class="verdict ${passed ? 'pass' : 'fail'}">${passed ? '✓ Passed' : '✗ Failed'}</div>
+        <div class="verdict ${passed ? 'pass' : 'fail'}">${passed ? '✓ Practice target reached' : '✗ Below practice target'}</div>
         <div class="result-score">${score} / ${total}</div>
-        <div class="result-pct">${percentage}% · pass mark ${PASS_THRESHOLD}%</div>
+        <div class="result-pct">${percentage}% · practice target ${PASS_THRESHOLD}%</div>
         <div class="result-message">${message}</div>
         <div class="breakdown">
           <h3>Breakdown by topic</h3>
@@ -1564,6 +1531,7 @@
     stopTimer();
     document.getElementById('timer').hidden = true;
     renderStudy();
+    document.getElementById('practice').scrollIntoView({ block: 'start' });
   }
 
   function setStudyTopic(topic) {

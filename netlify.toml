@@ -2,6 +2,10 @@
 [build]
   publish = "."
 
+# Keep the resource URL consistent with its links, canonical and offline cache.
+[build.processing.html]
+  pretty_urls = false
+
 [[headers]]
   for = "/*"
   [headers.values]

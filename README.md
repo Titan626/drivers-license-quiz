@@ -1,16 +1,16 @@
 # VIO Mock Quiz — Nigerian Driver's License Practice Test
 
-A free, open-source practice test for the Nigerian Vehicle Inspection Officer (VIO) driver's license exam, based on the FRSC Highway Code.
+A free, open-source, independent Nigerian driving practice app covering FRSC Highway Code topics. It is not affiliated with or endorsed by FRSC or VIO; the question bank is not an official examination paper.
 
 **🚗 Live demo: [viomocktest.netlify.app](https://viomocktest.netlify.app/)**
 
 ![license](https://img.shields.io/badge/license-MIT-blue.svg) ![no build](https://img.shields.io/badge/build-none-green.svg) ![PWA](https://img.shields.io/badge/PWA-installable-success.svg)
 
-- **Zero dependencies** — single HTML file + one JS file. No build step.
+- **Zero runtime dependencies** — static HTML/CSS and vanilla JavaScript. No build step.
 - **Mobile-friendly** — works on any phone or laptop browser, installable as a PWA.
-- **Realistic** — 60 seconds per question (matches actual VIO pace), 70% pass mark.
+- **Practice settings** — a shared countdown allowing 60 seconds per question and a 70% practice pass threshold. These are app settings, not confirmed nationwide VIO rules.
 - **Three modes** — 20-question quick test, 40-question full test, or untimed Flashcards (Study mode).
-- **80 questions** sourced directly from the FRSC Highway Code, balanced across Road Signs, Traffic Rules, Vehicle Knowledge, and Highway Code.
+- **80 community-written practice questions** covering FRSC Highway Code topics, balanced across Road Signs, Traffic Rules, Vehicle Knowledge, and Highway Code.
 - **Authentic road signs** — 19 of 20 road-sign questions use the official Nigerian sign designs (yellow/red, FRSC-issued) sourced from Wikimedia Commons.
 - **Smart features** — timer with warning states, question + option shuffle, light/dark mode, keyboard shortcuts, localStorage progress save, review-wrong-answers mode, best-score tracking, and offline support.
 
@@ -20,13 +20,25 @@ A free, open-source practice test for the Nigerian Vehicle Inspection Officer (V
 - **Flashcards / Study mode** — browse all 80 questions with answers + explanations visible. Filter by topic. No timer, no score.
 - **Question shuffle** — different question set and option order every attempt.
 - **Topic-balanced 20Q mode** — five questions from each of the four topics (Road Signs, Traffic Rules, Vehicle Knowledge, Highway Code).
-- **Pass/Fail verdict** at 70% threshold, with topic-level breakdown.
+- **Practice target verdict** at 70% threshold, with topic-level breakdown.
 - **Review wrong answers only** after the test, with explanations.
 - **Resume in progress** — refresh the page and pick up where you left off.
 - **Best scores** stored per mode in your browser.
 - **Light/Dark mode** with `prefers-color-scheme` autodetection.
 - **PWA installable** — add to your phone's home screen, works offline.
 - **Full keyboard support**.
+
+## Readable study resource
+
+[`vio-driving-test-questions.html`](vio-driving-test-questions.html) contains all 80 questions, options, correct answers, explanations, sign images, topic anchors and source notes in the initial HTML. It works without JavaScript and links back to the interactive quiz. The homepage focuses on the original quiz container, with an “About the test” link underneath. [`about-the-test.html`](about-the-test.html) holds the introduction, study-resource link and visible FAQ that matches its structured data.
+
+`questions.js` remains the question source of truth. After editing questions or the About page FAQ in `scripts/generate-resource.cjs`, run the optional, dependency-free authoring helper:
+
+```bash
+node scripts/generate-resource.cjs
+```
+
+Commit the generated HTML alongside source changes. Deployment still serves committed static files with no build step. Preserve question order: browser-saved sessions refer to original array indices. Bump `CACHE_VERSION` in `sw.js` for every release.
 
 ## Run locally
 
@@ -85,7 +97,7 @@ Want to add or improve questions? See [CONTRIBUTING.md](CONTRIBUTING.md). All qu
 
 ## Disclaimer
 
-This is a **practice test only**. Always refer to the official [FRSC Highway Code](https://frsc.gov.ng/) for authoritative information. Question content is community-contributed and may contain errors — open an issue or PR if you spot one.
+This is an **independent practice test only**, not an official FRSC or VIO service. Confirm actual assessment requirements with your driving school or VIO office. Always refer to the official [FRSC Highway Code](https://frsc.gov.ng/) for authoritative information. Question content is community-contributed and may contain errors — open an issue or PR if you spot one.
 
 ## Acknowledgments
 

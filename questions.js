@@ -484,7 +484,7 @@ window.QUESTIONS = [
   },
   {
     topic: "Highway Code",
-    q: "Per the FRSC Act, a Nigerian driver's licence is issued for a validity period of:",
+    q: "Under the historical licence-validity provision of the FRSC Act 2007, a driver's licence is issued for:",
     options: [
       "6 months",
       "1 year",
@@ -492,7 +492,7 @@ window.QUESTIONS = [
       "Lifetime"
     ],
     answer: 2,
-    explain: "Per the FRSC Act 2007, the validity period for drivers' licences shall be 3 years, subject to renewal at expiration. Driving with an expired licence is an offence (DWL)."
+    explain: "The FRSC Act 2007 provision describes a three-year validity period, subject to renewal. This is a historical-law question, not the full current application guidance: the FRSC driver's licence portal now offers both three-year and five-year validity options. Check the official portal when applying or renewing."
   },
   {
     topic: "Highway Code",
@@ -867,7 +867,7 @@ window.QUESTIONS = [
       "Wear an adult seat belt"
     ],
     answer: 1,
-    explain: "Per Highway Code Section B.V (The Child), children 0–12 months should NOT ride in the front. If carried in the front for any reason, they must be in a rear-facing child restraint. Never carry a child on your lap."
+    explain: "Use a correctly installed rear-facing child restraint in the rear seat, following the seat and vehicle manufacturers’ instructions. Never place a rear-facing restraint in front of an active passenger airbag: deployment can cause fatal injury. NHTSA recommends that children under 13 ride in the back seat. Never carry a child on your lap."
   },
   {
     topic: "Vehicle Knowledge",

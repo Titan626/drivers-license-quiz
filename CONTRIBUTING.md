@@ -17,7 +17,7 @@ Thanks for helping improve the VIO Mock Quiz! The most useful contributions are 
 {
   topic:   "Road Signs",          // one of: "Road Signs", "Traffic Rules", "Vehicle Knowledge", "Highway Code"
   q:       "This road sign means:",
-  sign:    "<svg ...>...</svg>",  // OPTIONAL — only for road-sign questions
+  sign:    "<svg ...>...</svg>",  // OPTIONAL — a sign or other relevant illustration
   options: [
     "Slow down and proceed with caution",
     "Come to a complete stop before proceeding",
@@ -33,7 +33,8 @@ Thanks for helping improve the VIO Mock Quiz! The most useful contributions are 
 
 - `topic` — must be one of the four existing topics. Don't introduce new ones in a question PR; open a discussion issue first.
 - `q` — phrase as a complete sentence. End with `:` if the options complete the sentence, `?` if it's a question.
-- `sign` — optional inline SVG or an image pointing to a local `signs/` SVG. For inline SVG use a `200x200` viewBox and inline colours. No external image URLs. Add new local assets to the service-worker precache list.
+- `sign` — optional inline SVG or an image pointing to a local `signs/` SVG or `illustrations/` raster image. It may illustrate a sign or a scenario in any topic. Use descriptive alt text. For inline SVG use a `200x200` viewBox and inline colours. No external image URLs. Add new local assets to the service-worker precache list. Generated sign images must be checked against an authoritative reference.
+- `sources` — optional array of `{ label, url }` references, rendered as answer-source links on the readable study page. Include a specific authoritative reference for every new question.
 - `options` — 2 to 4 strings. Keep them similar in length so position alone doesn't hint at the answer.
 - `answer` — zero-based index. The app shuffles options at runtime, so the original position doesn't matter to users — only correctness matters.
 - `explain` — explain *why* the correct answer is correct, not just what it is. Reference the FRSC Highway Code where possible.
@@ -68,4 +69,4 @@ The app is intentionally a single-file vanilla JS app with no build step. Please
 - [ ] Quiz/resume works; existing question indices are preserved
 - [ ] Initial HTML, direct topic/question links and offline cache update checked
 - [ ] If adding questions: each new question renders correctly and the correct answer is verified
-- [ ] If adding SVG signs: the sign is recognizable at 110px (mobile size)
+- [ ] If adding images: symbols, arrows, words and road markings match the cited reference and remain clear on mobile

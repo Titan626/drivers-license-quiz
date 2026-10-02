@@ -7,6 +7,7 @@ const root = path.resolve(__dirname, '..');
 const sandbox = { window: {} };
 vm.runInNewContext(fs.readFileSync(path.join(root, 'questions.js'), 'utf8'), sandbox);
 const questions = sandbox.window.QUESTIONS;
+const questionCount = questions.length;
 const escape = value => String(value).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const origin = 'https://viomocktest.netlify.app';
 const resource = 'vio-driving-test-questions.html';
@@ -18,21 +19,23 @@ const topics = [
 ];
 const faq = [
   ['Is this an official VIO test?', 'No. VIO Mock Quiz is a free, independent practice app. It is not affiliated with or endorsed by FRSC or VIO, and its questions are not an official examination paper.'],
-  ['How many questions are in this mock test?', 'This app has 80 practice questions across four topics. Quick mode selects 20 questions and Full mode selects 40. These counts describe this app, not a confirmed nationwide VIO test format.'],
+  ['How many questions are in this mock test?', `This app has ${questionCount} practice questions across four topics. Quick mode selects 20 questions and Full mode selects 40. These counts describe this app, not a confirmed nationwide VIO test format.`],
   ['What are the timer and pass threshold?', 'Quick mode allows 20 minutes and Full mode allows 40 minutes: 60 seconds per question in one shared countdown. The practice pass threshold is 70%. These are app settings, not a claim about the official VIO pass mark or timing.'],
   ['Is the driving-school CBT the same as the VIO driving test?', 'FRSC’s April 2024 service level agreements describe a driving-school computer-based test (CBT), with a 60% pass mark, and a separate subsequent driving test with VIO. The CBT threshold should not be presented as a nationwide VIO test rule. Confirm your assessment format with your driving school or VIO office.'],
-  ['Can I study the questions without taking a timed quiz?', 'Yes. Flashcards show the answers and explanations without a timer. You can also read all 80 questions and answers on the linked study page, including road sign images and topic navigation.'],
+  ['Can I study the questions without taking a timed quiz?', `Yes. Flashcards show the answers and explanations without a timer. You can also read all ${questionCount} questions and answers on the linked study page, including road sign images and topic navigation.`],
   ['Can I use this app offline or without an account?', 'No account is needed. After a successful first online load and offline cache installation, the quiz and question resource can work offline. Quiz progress, best scores and theme preferences are stored in your browser.']
 ];
 const schema = { '@context': 'https://schema.org', '@type': 'FAQPage', url: `${origin}/about-the-test.html`, name: 'About the VIO practice test', mainEntity: faq.map(([name, text]) => ({ '@type': 'Question', name, acceptedAnswer: { '@type': 'Answer', text } })) };
 let about = fs.readFileSync(path.join(root, 'about-the-test.html'), 'utf8');
+about = about.replace(/with \d+ practice questions/g, `with ${questionCount} practice questions`)
+  .replace(/Read all \d+ VIO questions/g, `Read all ${questionCount} VIO questions`);
 const replaceBlock = (name, content) => {
   const pattern = new RegExp(`<!-- GENERATED ${name} START -->[\\s\\S]*?<!-- GENERATED ${name} END -->`);
   if (!pattern.test(about)) throw new Error(`Missing ${name} markers`);
   about = about.replace(pattern, `<!-- GENERATED ${name} START -->\n${content}\n    <!-- GENERATED ${name} END -->`);
 };
 replaceBlock('FAQ SCHEMA', `<script type="application/ld+json">\n${JSON.stringify(schema, null, 2)}\n</script>`);
-replaceBlock('FAQ HTML', faq.map(([title, text]) => `    <article class="faq-item"><h3>${escape(title)}</h3><p>${escape(text)}</p></article>`).join('\n') + '\n    <p><a href="vio-driving-test-questions.html">Read all 80 VIO driving practice questions and answers →</a></p>');
+replaceBlock('FAQ HTML', faq.map(([title, text]) => `    <article class="faq-item"><h3>${escape(title)}</h3><p>${escape(text)}</p></article>`).join('\n') + `\n    <p><a href="vio-driving-test-questions.html">Read all ${questionCount} VIO driving practice questions and answers →</a></p>`);
 fs.writeFileSync(path.join(root, 'about-the-test.html'), about);
 const sections = topics.map(([topic, id, intro]) => {
   const entries = questions.map((q, index) => ({ q, index })).filter(({ q }) => q.topic === topic);
@@ -45,6 +48,7 @@ ${entries.map(({ q, index }) => {
     let source = '';
     if (q.q.includes('historical licence-validity')) source = '<p class="question-source">Sources: <a href="https://frsc.gov.ng/about-us/who-we-are/">FRSC statutory overview</a>; <a href="https://www.nigeriadriverslicence.frsc.gov.ng/faq">current FRSC licence validity options</a>.</p>';
     if (q.q.includes('0–12 months')) source = '<p class="question-source">Safety source: <a href="https://www.nhtsa.gov/vehicle-safety/air-bags">NHTSA airbag and child-restraint guidance</a>.</p>';
+    if (q.sources) source += '<p class="question-source">Sources: ' + q.sources.map(ref => `<a href="${escape(ref.url)}">${escape(ref.label)}</a>`).join('; ') + '.</p>';
     return `      <article class="question" id="question-${index + 1}">
         <p class="question-meta"><a href="#question-${index + 1}" aria-label="Link to question ${index + 1}">Question ${index + 1}</a> · ${escape(topic)}</p>
         <h3>${escape(q.q)}</h3>
@@ -61,8 +65,8 @@ ${entries.map(({ q, index }) => {
 const pageSchema = {
   '@context': 'https://schema.org', '@type': 'CollectionPage',
   '@id': `${origin}/${resource}#page`, url: `${origin}/${resource}`,
-  name: 'VIO Driving Test Questions and Answers — 80 Practice Questions',
-  description: 'An independent Nigerian driving study resource with 80 practice questions, answers, explanations and road sign images.',
+  name: `VIO Driving Test Questions and Answers — ${questionCount} Practice Questions`,
+  description: `An independent Nigerian driving study resource with ${questionCount} practice questions, answers, explanations and road sign images.`,
   inLanguage: 'en-NG', isAccessibleForFree: true,
   hasPart: topics.map(([name, id]) => ({ '@type': 'WebPageElement', name, url: `${origin}/${resource}#${id}` }))
 };
@@ -72,13 +76,13 @@ fs.writeFileSync(path.join(root, resource), `<!DOCTYPE html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>VIO Driving Test Questions and Answers — 80 Practice Questions</title>
-  <meta name="description" content="Study 80 Nigerian VIO driving practice questions and answers, with road sign images, explanations and sources. Independent study resource; no signup or timer.">
+  <title>VIO Driving Test Questions and Answers — ${questionCount} Practice Questions</title>
+  <meta name="description" content="Study ${questionCount} Nigerian VIO driving practice questions and answers, with road sign images, explanations and sources. Independent study resource; no signup or timer.">
   <link rel="canonical" href="${origin}/${resource}">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="VIO Mock Quiz">
-  <meta property="og:title" content="VIO Driving Test Questions and Answers — 80 Practice Questions">
-  <meta property="og:description" content="Read 80 independent Nigerian driving practice questions, answers and explanations by topic.">
+  <meta property="og:title" content="VIO Driving Test Questions and Answers — ${questionCount} Practice Questions">
+  <meta property="og:description" content="Read ${questionCount} independent Nigerian driving practice questions, answers and explanations by topic.">
   <meta property="og:url" content="${origin}/${resource}">
   <meta property="og:image" content="${origin}/icon-512.png">
   <meta name="twitter:card" content="summary">
@@ -102,26 +106,27 @@ fs.writeFileSync(path.join(root, resource), `<!DOCTYPE html>
       <div class="intro">
         <p class="eyebrow">Independent Nigerian driving study</p>
         <h1>VIO driving test questions and answers</h1>
-        <p>Read all 80 questions from our practice bank, with the correct answers, road sign images and explanations. Use the topics below to focus your revision, then test what you have learned in the <a href="./#practice">interactive mock quiz</a>.</p>
+        <p>Read all ${questionCount} questions from our practice bank, with the correct answers, road sign images and explanations. Use the topics below to focus your revision, then test what you have learned in the <a href="./#practice">interactive mock quiz</a>.</p>
         <p class="notice">This is an independent study resource, not an official VIO examination paper. It is not affiliated with or endorsed by FRSC or VIO. Our quiz’s 20/40 questions, 60 seconds per question and 70% pass threshold are practice settings. Confirm actual assessment requirements with your driving school or VIO office.</p>
       </div>
       <nav id="topics" aria-label="Question topics">
         <h2>Choose a topic</h2>
-        <div class="topic-links">${topics.map(([name, id]) => `<a href="#${id}">${escape(name)} <span>20</span></a>`).join('')}</div>
+        <div class="topic-links">${topics.map(([name, id]) => `<a href="#${id}">${escape(name)} <span>${questions.filter(q => q.topic === name).length}</span></a>`).join('')}</div>
         <p><a href="#sources">Sources and content notes ↓</a> · <a href="./#practice">Take a timed practice quiz →</a></p>
       </nav>
       ${sections}
       <section id="sources" aria-labelledby="sources-title">
         <h2 id="sources-title">Sources and content notes</h2>
-        <p>The question bank contains community-written explanations of FRSC Highway Code topics. It is a study aid and may contain errors; the linked official sources take priority. The bank has not been verified as a current official examination paper.</p>
+        <p>The question bank contains community-written explanations of FRSC Highway Code topics. The 20 questions added in October 2026 include individual answer sources. It is a study aid and may contain errors; the linked official sources take priority. The bank has not been verified as a current official examination paper.</p>
         <ul class="source-list">
           <li><a href="https://frsc.gov.ng/publications/">FRSC publications</a> — official road safety materials for further study. Highway Code section references in the explanations come from the existing question bank.</li>
           <li><a href="https://frsc.gov.ng/wp-content/uploads/2024/05/SLAs-TO-PEBEC.pdf">FRSC service level agreements, April 2024 (PDF)</a> — page 3 describes the VIO driving test; page 19 describes a separate driving-school CBT with a 60% pass mark. That CBT threshold does not establish a nationwide VIO test threshold.</li>
           <li><a href="https://www.nigeriadriverslicence.frsc.gov.ng/faq">FRSC driver’s licence FAQ</a> — current application guidance includes three- and five-year validity options. The three-year question above refers specifically to the historical FRSC Act 2007 provision.</li>
           <li><a href="https://frsc.gov.ng/about-us/who-we-are/">FRSC statutory overview</a> — describes the historical three-year validity provision.</li>
           <li><a href="https://www.nhtsa.gov/vehicle-safety/air-bags">NHTSA airbag safety</a> — child-restraint safety guidance: never place a rear-facing restraint in front of an active passenger airbag. This is safety guidance, not a statement of Nigerian licensing law.</li>
-          <li><a href="https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Nigeria">Wikimedia Commons: Nigerian road sign SVGs</a> — source of the local sign illustrations.</li>
+          <li><a href="https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Nigeria">Wikimedia Commons: Nigerian road sign SVGs</a> — source of the existing local SVG signs. Six additional raster study illustrations were generated and checked against the FRSC MI-III Compendium 2025 sign chart (page 4) and chevron rule (§1.7, page 6).</li>
         </ul>
+        <p>Additional answer references: <a href="https://frsc.gov.ng/wp-content/uploads/2025/04/MI-III-COMPENDIUM-2025.pdf">FRSC MI-III Compendium 2025</a>, <a href="https://frsc.gov.ng/wp-content/uploads/2025/04/RC-COMPENDIUM-2025.pdf">FRSC RC Compendium 2025</a>, <a href="https://frsc.gov.ng/wp-content/uploads/2025/04/PMI-COMPENDIUM-2025.pdf">FRSC PMI Compendium 2025</a>, <a href="https://www.nhtsa.gov/vehicle-safety/tires">NHTSA tyre maintenance</a> and <a href="https://www.nhtsa.gov/winter-driving-tips">ABS guidance</a>, and <a href="https://www.ontario.ca/document/official-mto-drivers-handbook/changing-positions">Ontario Ministry of Transportation blind-spot guidance</a>. International sources support general driving safety, not Nigerian licensing-law claims.</p>
         <p>Application and safety sources above checked on 2 October 2026. Confirm current requirements before applying. To report a content error, <a href="https://github.com/Titan626/drivers-license-quiz/issues">open an issue with the question and an authoritative source</a>.</p>
         <p><a href="./#practice">Practise with the quiz →</a> · <a href="#topics">Back to topics ↑</a></p>
       </section>

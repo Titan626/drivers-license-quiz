@@ -3,7 +3,7 @@
 // network with cache fallback for the Inter font CDN.
 // Bump CACHE_VERSION on every release to invalidate old caches.
 
-const CACHE_VERSION = 'vio-quiz-v14';
+const CACHE_VERSION = 'vio-quiz-v15';
 const APP_SHELL = [
   './',
   './index.html',
@@ -12,6 +12,12 @@ const APP_SHELL = [
   './vio-driving-test-questions.html',
   './resource.css',
   './resource.js',
+  './illustrations/give-way.png',
+  './illustrations/no-stopping.png',
+  './illustrations/minimum-speed-30.png',
+  './illustrations/no-right-turn.png',
+  './illustrations/airport-direction.png',
+  './illustrations/solid-chevron-marking.png',
   './manifest.json',
   './icon.svg',
   './icon-192.png',

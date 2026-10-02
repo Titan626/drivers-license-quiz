@@ -1,0 +1,31 @@
+{
+  "tool": "built-in image_gen",
+  "date": "2026-10-02",
+  "reference": "https://frsc.gov.ng/wp-content/uploads/2025/04/MI-III-COMPENDIUM-2025.pdf#page=4",
+  "assets": [
+    {
+      "file": "illustrations/give-way.png",
+      "prompt": "Create a single Nigerian driving quiz study illustration: an inverted equilateral triangular GIVE WAY road sign, point DOWN. Bold RED triangular border, flat YELLOW interior, with two centred lines of crisp BLACK uppercase text exactly GIVE and WAY. Flat front view, geometric accurate shape, no pole, no scenery, no 3D, no shadows or texture. Single isolated sign occupies 82% of a square white canvas with generous even white margins. This is the Nigerian yellow-background road-sign variant illustrated in FRSC's MI-III Compendium 2025 page 4. No captions, watermarks, logo or extra symbols. Clean raster illustration legible at 140px; not a collage."
+    },
+    {
+      "file": "illustrations/no-stopping.png",
+      "prompt": "Create a single Nigerian driving quiz study illustration of a NO STOPPING road sign. A perfect flat BLUE circular disc, a thick RED outer ring, and TWO thick straight RED diagonal bars crossing as a symmetrical X from upper-left to lower-right and upper-right to lower-left. The diagonals join the red border. No letters or numbers anywhere. Exactly two diagonals; this must clearly differ from a one-diagonal no-parking sign. Front view, no pole, no scene, no texture, no shadow, no 3D. Occupy 82% of a square plain white canvas, margins on every side. Geometric crisp high contrast clean raster graphic, legible at 140px. FRSC MI-III Compendium 2025 page 4 depicts this blue red-cross variant. No captions, logo or watermark."
+    },
+    {
+      "file": "illustrations/minimum-speed-30.png",
+      "prompt": "Create a single Nigerian driving quiz study illustration of a MINIMUM SPEED 30 road sign. A perfectly circular flat BLUE disc, with a fine WHITE inner edge ring and large bold WHITE numerals exactly 30 centred. The sign has NO RED border, NO other lettering, NO unit text, NO diagonal bars, NO arrows. This is the blue mandatory minimum-speed sign illustrated in FRSC MI-III Compendium 2025 page 4. Flat head-on graphic, no pole, scenery, gradients, 3D, shadows or texture. Occupy 82% of a square plain white canvas with generous margins. Crisp geometric raster graphic readable at 140px, no captions or watermarks."
+    },
+    {
+      "file": "illustrations/no-right-turn.png",
+      "prompt": "Create a single Nigerian driving quiz study illustration of a NO RIGHT TURN road sign. Perfect circular sign with thick RED border and flat YELLOW interior. In the centre a bold BLACK elbow arrow: vertical shaft rises from the bottom then makes a single 90-degree bend toward the RIGHT, with a triangular arrowhead pointing RIGHT. A thick RED diagonal prohibition bar passes from upper LEFT to lower RIGHT across the arrow. The arrow and diagonal are clearly readable. This is the Nigerian yellow red black variant shown in FRSC MI-III Compendium 2025 page 4. Single isolated sign, front view, no pole, scenery, 3D, shadow, texture, text, logo or watermark. Occupy 82% of a square WHITE canvas; crisp raster graphic legible at 140px."
+    },
+    {
+      "file": "illustrations/airport-direction.png",
+      "prompt": "Create a single Nigerian driving quiz study illustration of a direction-to-AIRPORT sign. Flat GREEN horizontal sign panel shaped as a wide rectangle with a chevron-pointed RIGHT end. Inside only one bold WHITE silhouette of an aeroplane seen directly from ABOVE, with clearly recognisable fuselage, swept wings and tail, oriented so its nose points approximately up and RIGHT, towards the panel's right-hand pointed end. The sign panel background is completely green, plane completely white. No words, letters, numbers, separate arrow or other symbols. This matches the airport direction pictogram in FRSC MI-III Compendium 2025 page 4. Plain WHITE square canvas, sign centred and occupying 86% width, generous margins, no pole, scenery, gradients, shadow, texture, 3D or watermark. Crisp simple raster graphic readable at 140px."
+    },
+    {
+      "file": "illustrations/solid-chevron-marking.png",
+      "prompt": "Create a clean accurate driving education diagram, overhead top-down flat view of a small rectangular GREY ASPHALT carriageway section with a central long tapered CHEVRON HATCHED exclusion area. Inside the central tapered elongated island draw repeating crisp WHITE V-shaped chevron bands, with each V apex pointing towards the TOP of the canvas. Surround the ENTIRE chevron hatched area with a single CONTINUOUS SOLID WHITE boundary line, unbroken on both sides and both ends. Essential: absolutely NO dashed or broken line anywhere. Outside the island show two plain grey traffic lanes, one on either side, with a single white forward arrow in EACH lane; BOTH lane arrows point UP, representing traffic moving in the same direction on both sides of the chevron. No cars, people, signs, road junction, scenery, text, labels or captions. Orthographic not perspective. White square canvas with generous margins around the grey road panel. High contrast clean raster diagram legible at 140px. This illustrates the solid-boundary chevron rule in FRSC MI-III Compendium 2025 section 1.7 page 6, vehicles must not enter the marked area. No extra border, shadows, gradients or watermarks."
+    }
+  ]
+}

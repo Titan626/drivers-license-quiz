@@ -65,6 +65,8 @@ section { margin-top: 48px; scroll-margin-top: 20px; }
 .question-meta { margin-top: 0; }
 .sign-wrap { width: 160px; padding: 18px; margin: 16px 0; background: #fff; border: 1px solid #dcdce0; border-radius: 8px; }
 .sign-wrap img, .sign-wrap svg { display: block; width: 100%; height: auto; max-height: 130px; }
+.sign-wrap:has(.diagram-image) { width: min(100%, 320px); }
+.sign-wrap img.diagram-image { max-height: none; }
 .answer-options { padding-left: 24px; }
 .answer-options li { margin: 6px 0; padding-left: 4px; }
 .answer { background: var(--green-soft); padding: 12px 16px; border-radius: 8px; color: var(--text); }

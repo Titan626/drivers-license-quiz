@@ -1389,5 +1389,372 @@ window.QUESTIONS = [
         "url": "https://frsc.gov.ng/wp-content/uploads/2025/04/RC-COMPENDIUM-2025.pdf#page=2"
       }
     ]
+  },
+
+  // ===== SOURCE-CHECKED EXPANSION: QUESTIONS 101–120 =====
+  {
+    "topic": "Road Signs",
+    "q": "What hazard does the curved black symbol in this warning triangle indicate?",
+    "sign": "<img src=\"illustrations/bend-right.png\" alt=\"Red-bordered yellow triangle containing a black road stroke curving to the right\" width=\"512\" height=\"512\">",
+    "options": [
+      "A compulsory right turn at the next junction",
+      "A dangerous bend to the right ahead",
+      "A right turn is prohibited",
+      "A one-way road begins ahead"
+    ],
+    "answer": 1,
+    "explain": "The warning triangle shows a dangerous bend to the right. Reduce speed before the bend and stay in your lane; it warns of a curve rather than ordering a turn.",
+    "sources": [
+      {
+        "label": "FRSC MI-III Compendium 2025, §1.4 sign chart, page 4",
+        "url": "https://frsc.gov.ng/wp-content/uploads/2025/04/MI-III-COMPENDIUM-2025.pdf#page=4"
+      }
+    ]
+  },
+  {
+    "topic": "Road Signs",
+    "q": "What change to the road ahead is shown by these two inward-bending lines?",
+    "sign": "<img src=\"illustrations/carriageway-narrows.png\" alt=\"Red-bordered yellow triangle containing two black road-edge lines narrowing towards the top\" width=\"512\" height=\"512\">",
+    "options": [
+      "The road becomes a dual carriageway",
+      "A narrow bridge is the only hazard ahead",
+      "The road widens on both sides",
+      "The carriageway narrows ahead"
+    ],
+    "answer": 3,
+    "explain": "The two converging road edges warn that the carriageway narrows. Expect less road space and adjust your speed and position. This sign does not specifically identify a bridge.",
+    "sources": [
+      {
+        "label": "FRSC MI-III Compendium 2025, §1.4 sign chart, page 4",
+        "url": "https://frsc.gov.ng/wp-content/uploads/2025/04/MI-III-COMPENDIUM-2025.pdf#page=4"
+      }
+    ]
+  },
+  {
+    "topic": "Road Signs",
+    "q": "Which junction layout is identified by the black T-shaped symbol shown?",
+    "sign": "<img src=\"illustrations/t-junction.png\" alt=\"Red-bordered yellow triangle containing a black capital T road symbol\" width=\"512\" height=\"512\">",
+    "options": [
+      "A T-junction ahead",
+      "A crossroads with four approaches",
+      "A roundabout ahead",
+      "A staggered junction with two separate side roads"
+    ],
+    "answer": 0,
+    "explain": "The T shape warns of a junction where two roads meet in the shape of a T. Approach cautiously, check traffic and obey the actual priority signs or signals; the warning sign alone does not grant priority.",
+    "sources": [
+      {
+        "label": "FRSC MI-III Compendium 2025, §1.4 sign chart, page 4",
+        "url": "https://frsc.gov.ng/wp-content/uploads/2025/04/MI-III-COMPENDIUM-2025.pdf#page=4"
+      }
+    ]
+  },
+  {
+    "topic": "Road Signs",
+    "q": "What instruction does this white U-shaped arrow on a blue circle give?",
+    "sign": "<img src=\"illustrations/compulsory-u-turn.png\" alt=\"Blue circular sign containing a white arrow curving through a half-circle and pointing down\" width=\"512\" height=\"512\">",
+    "options": [
+      "U-turns are prohibited at this location",
+      "A hairpin bend is ahead",
+      "Make a U-turn as directed when safe",
+      "Continue straight through the junction"
+    ],
+    "answer": 2,
+    "explain": "FRSC classifies this blue-circle U-turn sign as mandatory: follow the indicated U-turn movement when safe. Its blue background distinguishes it from the yellow, red-bordered No U-turn sign.",
+    "sources": [
+      {
+        "label": "FRSC MI-III Compendium 2025, §1.4 sign chart, page 4",
+        "url": "https://frsc.gov.ng/wp-content/uploads/2025/04/MI-III-COMPENDIUM-2025.pdf#page=4"
+      }
+    ]
+  },
+  {
+    "topic": "Road Signs",
+    "q": "What facility does the green sign shown identify?",
+    "sign": "<img src=\"illustrations/rest-area.png\" alt=\"Green rectangular sign with white uppercase words REST AREA\" width=\"512\" height=\"512\">",
+    "options": [
+      "A hospital emergency entrance",
+      "A rest area",
+      "A place where vehicles must stop for inspection",
+      "A compulsory parking restriction"
+    ],
+    "answer": 1,
+    "explain": "The green REST AREA panel is an informative sign identifying a designated rest facility. It helps you find somewhere to take a break; it does not require every vehicle to stop.",
+    "sources": [
+      {
+        "label": "FRSC MI-III Compendium 2025, §1.4 sign chart, page 4",
+        "url": "https://frsc.gov.ng/wp-content/uploads/2025/04/MI-III-COMPENDIUM-2025.pdf#page=4"
+      }
+    ]
+  },
+  {
+    "topic": "Traffic Rules",
+    "q": "A traffic signal displays red and amber together. When may you start moving?",
+    "options": [
+      "Immediately, because amber cancels the red light",
+      "After sounding your horn to warn crossing traffic",
+      "As soon as the vehicle beside you moves",
+      "When green appears and the way is clear"
+    ],
+    "answer": 3,
+    "explain": "FRSC states that red and amber together still mean stop. Remain behind the stop line until green shows, then proceed only if it is safe and clear.",
+    "sources": [
+      {
+        "label": "FRSC MI-III Compendium 2025, §1.5 traffic signals, page 5",
+        "url": "https://frsc.gov.ng/wp-content/uploads/2025/04/MI-III-COMPENDIUM-2025.pdf#page=5"
+      }
+    ]
+  },
+  {
+    "topic": "Traffic Rules",
+    "q": "Your light is green and you are turning into a road where pedestrians are already crossing. What should you do?",
+    "options": [
+      "Give way to the crossing pedestrians before completing the turn",
+      "Complete the turn because a green light gives absolute priority",
+      "Sound your horn and continue at the same speed",
+      "Drive around the pedestrians without reducing speed"
+    ],
+    "answer": 0,
+    "explain": "A green light permits movement only when safe. FRSC specifically instructs drivers turning left or right to take care and give way to pedestrians crossing.",
+    "sources": [
+      {
+        "label": "FRSC MI-III Compendium 2025, §1.5 traffic signals, page 5",
+        "url": "https://frsc.gov.ng/wp-content/uploads/2025/04/MI-III-COMPENDIUM-2025.pdf#page=5"
+      }
+    ]
+  },
+  {
+    "topic": "Traffic Rules",
+    "q": "You are about to overtake near the crest of a hill, but cannot see enough of the road beyond. What is the safest decision?",
+    "options": [
+      "Overtake quickly before reaching the top",
+      "Rely on the horn to warn any unseen traffic",
+      "Stay behind until you have a clear, safe view ahead",
+      "Move into the opposing lane to improve your view"
+    ],
+    "answer": 2,
+    "explain": "Do not begin overtaking when the hill hides approaching traffic or the space needed to complete the manoeuvre. Wait until visibility, road markings and traffic conditions make passing safe.",
+    "sources": [
+      {
+        "label": "UK Department for Transport Highway Code, rule 166: visibility before overtaking (general safety)",
+        "url": "https://www.gov.uk/guidance/the-highway-code/using-the-road-159-to-203#rule166"
+      }
+    ]
+  },
+  {
+    "topic": "Traffic Rules",
+    "q": "An ambulance using its siren approaches from behind. How should you help it pass?",
+    "options": [
+      "Follow closely behind it through the traffic",
+      "Make room safely, pulling aside if needed without creating danger",
+      "Drive through a red signal to get out of its way",
+      "Brake sharply and stop wherever you are"
+    ],
+    "answer": 1,
+    "explain": "Stay calm, check the ambulance's likely route and make room safely. Pull aside or stop where safe if needed; avoid sudden braking, endangering pedestrians or ignoring signals on your own initiative.",
+    "sources": [
+      {
+        "label": "UK Department for Transport Highway Code, rule 219: emergency vehicles (general safety)",
+        "url": "https://www.gov.uk/guidance/the-highway-code/road-users-requiring-extra-care-204-to-225#rule219"
+      }
+    ]
+  },
+  {
+    "topic": "Traffic Rules",
+    "q": "You have passed your intended expressway exit. What should you do?",
+    "options": [
+      "Reverse carefully along the shoulder to the slip road",
+      "Make a U-turn through a gap in the central divider",
+      "Stop in the traffic lane and wait for a safe gap",
+      "Continue to the next exit and find a safe route back"
+    ],
+    "answer": 3,
+    "explain": "A missed exit is corrected by continuing to the next exit. Reversing, crossing the divider or driving against expressway traffic creates a serious collision risk.",
+    "sources": [
+      {
+        "label": "UK Department for Transport Highway Code, rule 263: missed exits (general safety)",
+        "url": "https://www.gov.uk/guidance/the-highway-code/motorways-253-to-273#rule263"
+      }
+    ]
+  },
+  {
+    "topic": "Vehicle Knowledge",
+    "q": "In a manual-transmission car, which pedal do you press fully before changing gear?",
+    "options": [
+      "The clutch pedal",
+      "The accelerator pedal",
+      "The brake pedal only",
+      "The parking-brake pedal"
+    ],
+    "answer": 0,
+    "explain": "Press the clutch pedal to disengage drive while changing gear, then release it smoothly as appropriate. FRSC's vehicle checks include changing gears while pressing the clutch.",
+    "sources": [
+      {
+        "label": "FRSC MI-III Compendium 2025, §2.1 safety checks, page 8",
+        "url": "https://frsc.gov.ng/wp-content/uploads/2025/04/MI-III-COMPENDIUM-2025.pdf#page=8"
+      }
+    ]
+  },
+  {
+    "topic": "Vehicle Knowledge",
+    "q": "What is the main purpose of brake fluid in a hydraulic braking system?",
+    "options": [
+      "To cool the engine while the vehicle slows",
+      "To lubricate the tyre tread",
+      "To transmit pressure to the braking mechanisms at the wheels",
+      "To supply fuel to the engine under braking"
+    ],
+    "answer": 2,
+    "explain": "Brake fluid transfers hydraulic pressure through the brake lines to the wheel braking mechanisms. Use the specified fluid and follow the vehicle handbook for checks and servicing.",
+    "sources": [
+      {
+        "label": "Toyota Canada, Quality Service: brake system and hydraulic fluid",
+        "url": "https://www.toyota.ca/en/owners/service/"
+      }
+    ]
+  },
+  {
+    "topic": "Vehicle Knowledge",
+    "q": "When parking and leaving a vehicle, what is the parking brake mainly used for?",
+    "options": [
+      "Keeping the engine running at a steady speed",
+      "Helping hold the stationary vehicle against rolling",
+      "Making the steering wheel easier to turn",
+      "Replacing the foot brake during normal driving"
+    ],
+    "answer": 1,
+    "explain": "Apply the parking brake to help secure the stationary vehicle, together with the appropriate gear or Park position according to the vehicle handbook. It is not a substitute for normal braking while driving.",
+    "sources": [
+      {
+        "label": "UK Department for Transport Highway Code, rule 239: securing a parked vehicle (general safety)",
+        "url": "https://www.gov.uk/guidance/the-highway-code/waiting-and-parking-238-to-252#rule239"
+      }
+    ]
+  },
+  {
+    "topic": "Vehicle Knowledge",
+    "q": "The windscreen is clean, but worn wiper blades leave broad streaks that obscure your view. What should you do before driving in rain?",
+    "options": [
+      "Add more engine oil to improve the wiper action",
+      "Use high-beam headlights to see through the streaks",
+      "Drive faster so airflow clears the screen",
+      "Replace the worn blades and check that the wipers clear the screen"
+    ],
+    "answer": 3,
+    "explain": "Wipers must clear the screen effectively for safe visibility. FRSC requires checking both their operation and blade effectiveness; worn blades that leave obscuring streaks need replacement.",
+    "sources": [
+      {
+        "label": "FRSC MI-III Compendium 2025, §2.1 safety checks, page 8",
+        "url": "https://frsc.gov.ng/wp-content/uploads/2025/04/MI-III-COMPENDIUM-2025.pdf#page=8"
+      }
+    ]
+  },
+  {
+    "topic": "Vehicle Knowledge",
+    "q": "In standing water, the steering suddenly feels unresponsive as the tyres lose grip. What should you do?",
+    "options": [
+      "Ease off the accelerator and slow gradually, avoiding abrupt inputs",
+      "Brake sharply and turn the wheel hard",
+      "Accelerate to force the tyres back onto the road",
+      "Apply the parking brake immediately"
+    ],
+    "answer": 0,
+    "explain": "This can be aquaplaning: water prevents the tyres gripping the road. Ease off the accelerator and let speed reduce gradually; sudden braking or steering can worsen loss of control.",
+    "sources": [
+      {
+        "label": "UK Department for Transport Highway Code, rule 227: loss of tyre grip in water (general safety)",
+        "url": "https://www.gov.uk/guidance/the-highway-code/driving-in-adverse-weather-conditions-226-to-237#rule227"
+      }
+    ]
+  },
+  {
+    "topic": "Highway Code",
+    "q": "You begin repeatedly yawning and struggling to keep your eyes open while driving. What is the safest response?",
+    "options": [
+      "Turn up the music and continue at the same speed",
+      "Open the window and finish the journey without stopping",
+      "Stop at a safe place and rest before continuing",
+      "Drive faster to spend less time on the road"
+    ],
+    "answer": 2,
+    "explain": "Drowsiness can lead to brief unintended sleep and loss of control. Stop somewhere safe and rest; coffee, an open window or loud music do not replace adequate sleep. Continue only when fit to drive.",
+    "sources": [
+      {
+        "label": "NHTSA, Drowsy Driving: sleep and short-term countermeasures",
+        "url": "https://www.nhtsa.gov/risky-driving/drowsy-driving"
+      }
+    ]
+  },
+  {
+    "topic": "Highway Code",
+    "q": "You start taking a medicine whose label warns that it may cause drowsiness. What should you do before driving?",
+    "options": [
+      "Assume it is safe because it was bought legally",
+      "Check the warning and seek advice; avoid driving if it may impair you",
+      "Take a double dose so the effects wear off sooner",
+      "Drive only on quiet roads until you feel accustomed to it"
+    ],
+    "answer": 1,
+    "explain": "Prescription and over-the-counter medicines can impair judgement, coordination and reaction time. Read the label and ask a pharmacist or clinician about driving; do not drive while impaired.",
+    "sources": [
+      {
+        "label": "NHTSA, Prescription and over-the-counter medicines: driving impairment",
+        "url": "https://www.nhtsa.gov/drug-impaired-driving/dangers-driving-after-taking-prescription-drugs-or-over-counter-medicines"
+      }
+    ]
+  },
+  {
+    "topic": "Highway Code",
+    "q": "Before riding a motorcycle on a public road, which item of head protection should you use?",
+    "options": [
+      "An ordinary cap worn under the chin",
+      "A helmet carried on the handlebars for emergencies",
+      "Any helmet left unfastened for easy removal",
+      "A suitable crash helmet fitted and securely fastened"
+    ],
+    "answer": 3,
+    "explain": "Wear a suitable crash helmet correctly fitted and fastened to protect your head. FRSC lists riding without a crash helmet as an offence; an unfastened helmet may come off in a collision.",
+    "sources": [
+      {
+        "label": "FRSC, Offences and Penalties: crash helmets and covering unstable materials",
+        "url": "https://frsc.gov.ng/offences-and-penalties/"
+      }
+    ]
+  },
+  {
+    "topic": "Highway Code",
+    "q": "A vehicle is carrying loose sand that could blow or spill onto the road. What should be done before the journey?",
+    "options": [
+      "Cover and contain the loose material so it cannot escape",
+      "Leave it uncovered and drive only at night",
+      "Sound the horn regularly to warn following drivers",
+      "Rely on following vehicles to stay far enough back"
+    ],
+    "answer": 0,
+    "explain": "Loose material can obscure visibility, damage vehicles and create road hazards. Cover and contain it before travelling; FRSC lists failure to cover unstable materials as an offence.",
+    "sources": [
+      {
+        "label": "FRSC, Offences and Penalties: crash helmets and covering unstable materials",
+        "url": "https://frsc.gov.ng/offences-and-penalties/"
+      }
+    ]
+  },
+  {
+    "topic": "Highway Code",
+    "q": "Animals suddenly enter the road ahead. Which response best avoids adding another collision risk?",
+    "options": [
+      "Swerve immediately into the oncoming lane",
+      "Accelerate past the animals before they move further",
+      "Slow or stop in a controlled way while considering traffic around you",
+      "Change lanes without checking because animals have priority"
+    ],
+    "answer": 2,
+    "explain": "FRSC advises judging stopping and other evasive actions carefully around animals. Consider traffic behind and beside you, and avoid swerving into oncoming traffic or another lane without checking.",
+    "sources": [
+      {
+        "label": "FRSC RC Compendium 2025, §1.2 animals in traffic, page 4",
+        "url": "https://frsc.gov.ng/wp-content/uploads/2025/04/RC-COMPENDIUM-2025.pdf#page=4"
+      }
+    ]
   }
 ];

@@ -10,14 +10,14 @@ A free, open-source, independent Nigerian driving practice app covering FRSC Hig
 - **Mobile-friendly** — works on any phone or laptop browser, installable as a PWA.
 - **Practice settings** — a shared countdown allowing 60 seconds per question and a 70% practice pass threshold. These are app settings, not confirmed nationwide VIO rules.
 - **Three modes** — 20-question quick test, 40-question full test, or untimed Flashcards (Study mode).
-- **100 community-written practice questions** covering FRSC Highway Code topics, 25 each across Road Signs, Traffic Rules, Vehicle Knowledge, and Highway Code.
-- **Road-sign study** — existing local SVG signs plus five generated sign illustrations checked against FRSC’s published chart, and a chevron road-marking diagram.
+- **120 community-written practice questions** covering FRSC Highway Code topics, 30 each across Road Signs, Traffic Rules, Vehicle Knowledge, and Highway Code.
+- **Road-sign study** — existing local SVG signs plus ten generated sign illustrations checked against FRSC’s published chart, and a chevron road-marking diagram.
 - **Smart features** — timer with warning states, question + option shuffle, light/dark mode, keyboard shortcuts, localStorage progress save, review-wrong-answers mode, best-score tracking, and offline support.
 
 ## Features
 
 - **Timed quiz** with visible countdown; auto-submits when time runs out.
-- **Flashcards / Study mode** — browse all 100 questions with answers + explanations visible. Filter by topic. No timer, no score.
+- **Flashcards / Study mode** — browse all 120 questions with answers + explanations visible. Filter by topic. No timer, no score.
 - **Question shuffle** — different question set and option order every attempt.
 - **Topic-balanced 20Q mode** — five questions from each of the four topics (Road Signs, Traffic Rules, Vehicle Knowledge, Highway Code).
 - **Practice target verdict** at 70% threshold, with topic-level breakdown.
@@ -30,7 +30,7 @@ A free, open-source, independent Nigerian driving practice app covering FRSC Hig
 
 ## Readable study resource
 
-[`vio-driving-test-questions.html`](vio-driving-test-questions.html) contains all 100 questions, options, correct answers, explanations, sign images, topic anchors and source notes in the initial HTML. It works without JavaScript and links back to the interactive quiz. The homepage focuses on the original quiz container, with an “About the test” link underneath. [`about-the-test.html`](about-the-test.html) holds the introduction, study-resource link and visible FAQ that matches its structured data.
+[`vio-driving-test-questions.html`](vio-driving-test-questions.html) contains all 120 questions, options, correct answers, explanations, sign images, topic anchors and source notes in the initial HTML. It works without JavaScript and links back to the interactive quiz. The homepage focuses on the original quiz container, with an “About the test” link underneath. [`about-the-test.html`](about-the-test.html) holds the introduction, study-resource link and visible FAQ that matches its structured data.
 
 `questions.js` remains the question source of truth. After editing questions or the About page FAQ in `scripts/generate-resource.cjs`, run the optional, dependency-free authoring helper:
 
@@ -40,7 +40,7 @@ node scripts/generate-resource.cjs
 
 Commit the generated HTML alongside source changes. Deployment still serves committed static files with no build step. Preserve question order: browser-saved sessions refer to original array indices. Bump `CACHE_VERSION` in `sw.js` for every release.
 
-The October 2026 expansion adds 20 source-checked questions and six generated illustrations. [Question and answer inventory](docs/question-expansion.md) records sources, duplicate review and image requirements; [generation prompts](docs/image-generation-prompts.json) records the built-in imagegen prompts.
+The October 2026 expansions add 40 source-checked questions and eleven generated illustrations. [Question and answer inventory](docs/question-expansion.md) records sources, duplicate review and image requirements; [generation prompts](docs/image-generation-prompts.json) records the first batch of built-in imagegen prompts. The [101–120 inventory](docs/question-expansion-101-120.md) and [second prompt set](docs/image-generation-prompts-101-120.json) cover the latest 20 additions and five sign images.
 
 ## Run locally
 

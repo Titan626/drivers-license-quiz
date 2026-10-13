@@ -1,4 +1,4 @@
-# VIO Mock Quiz — Nigerian Driver's License Practice Test
+# Nigerian Driver Licence Mock Test
 
 A free, open-source, independent Nigerian driving practice app covering FRSC Highway Code topics. It is not affiliated with or endorsed by FRSC or VIO; the question bank is not an official examination paper.
 

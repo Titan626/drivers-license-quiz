@@ -20,7 +20,7 @@ const topics = [
   ['Highway Code', 'highway-code', 'Review licence classes, road-user responsibilities and the Highway Code topics in this practice bank.']
 ];
 const faq = [
-  ['Is this an official VIO test?', 'No. VIO Mock Quiz is a free, independent practice app. It is not affiliated with or endorsed by FRSC or VIO, and its questions are not an official examination paper.'],
+  ['Is this an official VIO test?', 'No. Nigerian Driver Licence Mock Test is a free, independent practice app. It is not affiliated with or endorsed by FRSC or VIO, and its questions are not an official examination paper.'],
   ['How many questions are in this mock test?', `This app has ${questionCount} practice questions across four topics. Quick mode selects 20 questions and Full mode selects 40. These counts describe this app, not a confirmed nationwide VIO test format.`],
   ['What are the timer and pass threshold?', 'Quick mode allows 20 minutes and Full mode allows 40 minutes: 60 seconds per question in one shared countdown. The practice pass threshold is 70%. These are app settings, not a claim about the official VIO pass mark or timing.'],
   ['Is the driving-school CBT the same as the VIO driving test?', 'FRSC’s April 2024 service level agreements describe a driving-school computer-based test (CBT), with a 60% pass mark, and a separate subsequent driving test with VIO. The CBT threshold should not be presented as a nationwide VIO test rule. Confirm your assessment format with your driving school or VIO office.'],
@@ -82,7 +82,7 @@ fs.writeFileSync(path.join(root, resource), `<!DOCTYPE html>
   <meta name="description" content="Study ${questionCount} Nigerian VIO driving practice questions and answers, with road sign images, explanations and sources. Independent study resource; no signup or timer.">
   <link rel="canonical" href="${origin}/${resource}">
   <meta property="og:type" content="website">
-  <meta property="og:site_name" content="VIO Mock Quiz">
+  <meta property="og:site_name" content="Nigerian Driver Licence Mock Test">
   <meta property="og:title" content="VIO Driving Test Questions and Answers — ${questionCount} Practice Questions">
   <meta property="og:description" content="Read ${questionCount} independent Nigerian driving practice questions, answers and explanations by topic.">
   <meta property="og:url" content="${origin}/${resource}">
@@ -99,7 +99,7 @@ fs.writeFileSync(path.join(root, resource), `<!DOCTYPE html>
   <a class="skip-link" href="#content">Skip to questions</a>
   <div class="wrap">
     <header class="site-header">
-      <a class="brand" href="./"><img src="icon.svg" alt="" width="24" height="24">VIO Mock Quiz</a>
+      <a class="brand" href="./"><img src="icon.svg" alt="" width="24" height="24">Nigerian Driver Licence Mock Test</a>
       <button class="icon-btn" id="themeToggle" type="button" aria-label="Toggle theme" title="Toggle theme" hidden>
           <svg id="themeIcon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
         </button>
@@ -133,7 +133,7 @@ fs.writeFileSync(path.join(root, resource), `<!DOCTYPE html>
         <p><a href="./#practice">Practise with the quiz →</a> · <a href="#topics">Back to topics ↑</a></p>
       </section>
     </main>
-    <footer>Independent practice app · <a href="./">VIO Mock Quiz</a> · Built by <a href="https://github.com/Titan626">Iyanu</a></footer>
+    <footer>Independent practice app · <a href="./">Nigerian Driver Licence Mock Test</a> · Built by <a href="https://github.com/Titan626">Iyanu</a></footer>
   </div>
 </body>
 </html>
